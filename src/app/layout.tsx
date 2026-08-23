@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Noto_Nastaliq_Urdu, JetBrains_Mono } from "next/font/google";
 import { AntiTamperGuard } from "@/components/security/AntiTamperGuard";
+import { BrandProvider } from "@/context/BrandContext";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -24,7 +25,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "CS Studio 11 • Single National Curriculum (PECTAA 2023)",
-  description: "Computer Science Class 11 interactive 5-layer learning studio and presentation platform for Punjab Boards.",
+  description: "Computer Science Class 11 interactive learning studio and classroom presenter for Punjab Boards.",
 };
 
 export default function RootLayout({
@@ -38,8 +39,10 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${notoNastaliqUrdu.variable} ${jetBrainsMono.variable}`}
     >
       <body className="min-h-screen w-screen overflow-x-hidden bg-slate-100 text-slate-800 dark:bg-[#0f131a] dark:text-slate-200 font-sans">
-        {children}
-        <AntiTamperGuard />
+        <BrandProvider>
+          {children}
+          <AntiTamperGuard />
+        </BrandProvider>
       </body>
     </html>
   );

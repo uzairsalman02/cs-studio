@@ -1,394 +1,288 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import {
-  ArrowLeft,
-  Palette,
-  Settings,
-  Shield,
-  BarChart3,
-  CheckCircle,
-  Save,
-  Award,
-  Sparkles,
-  AlertTriangle,
-  Layers,
+  ShieldCheck,
+  Users,
   BookOpen,
+  HelpCircle,
+  Settings,
+  LayoutDashboard,
+  ExternalLink,
+  Edit,
+  CheckCircle2,
+  AlertCircle,
+  Sparkles,
+  Layers,
 } from "lucide-react";
+import { useBrand } from "@/context/BrandContext";
 
-export default function AdminPage() {
-  const [activePalette, setActivePalette] = useState("editorial-indigo");
-  const [appName, setAppName] = useState("CS Studio 11");
-  const [appLogoCode, setAppLogoCode] = useState("CS");
-  const [tagline, setTagline] = useState("Class 11 Computer Science • Board Syllabus");
-  const [copyright, setCopyright] = useState("Copyright © 2026 Uzair Salman. All Rights Reserved.");
-  const [antiTamper, setAntiTamper] = useState(true);
-  const [savedSuccess, setSavedSuccess] = useState(false);
+export default function AdminDashboardOverview() {
+  const { settings } = useBrand();
 
-  useEffect(() => {
-    const existingTheme = document.documentElement.getAttribute("data-theme") || "editorial-indigo";
-    setActivePalette(existingTheme);
-  }, []);
-
-  const handlePaletteSelect = (paletteId: string) => {
-    setActivePalette(paletteId);
-    document.documentElement.setAttribute("data-theme", paletteId);
-  };
-
-  const handleSaveSettings = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSavedSuccess(true);
-    setTimeout(() => setSavedSuccess(false), 3000);
-  };
-
-  const palettes = [
+  const manifestTopics = [
     {
-      id: "editorial-indigo",
-      name: "Editorial Indigo",
-      desc: "Default balanced theme for student learning",
-      primary: "#6366F1",
-      analogy: "#F59E0B",
-      tech: "#0D9488",
-      canvas: "#0C0F16",
+      code: "Topic 1.1",
+      title: "Software Basics & Classification",
+      unit: "Unit 1",
+      status: "Published",
+      svgCount: 2,
+      topperSheet: "Available ✓",
+      learnLink: "/learn/punjab-11/unit-01/topic-1-1",
+      teachLink: "/teach/software-basics-and-classification",
     },
     {
-      id: "obsidian-projector",
-      name: "Obsidian Projector",
-      desc: "High-contrast dark mode for classroom projectors",
-      primary: "#64748B",
-      analogy: "#D97706",
-      tech: "#94A3B8",
-      canvas: "#020408",
+      code: "Topic 1.2",
+      title: "Software Development Life Cycle (SDLC)",
+      unit: "Unit 1",
+      status: "Published",
+      svgCount: 12,
+      topperSheet: "Available ✓",
+      learnLink: "/learn/punjab-11/unit-01/topic-1-2",
+      teachLink: "/teach/sdlc-phases-and-workflow",
     },
     {
-      id: "emerald-focus",
-      name: "Emerald Focus",
-      desc: "Calming emerald tones for deep study sessions",
-      primary: "#059669",
-      analogy: "#EA580C",
-      tech: "#14B8A6",
-      canvas: "#091512",
+      code: "Topic 1.3",
+      title: "Waterfall Model & V-Model",
+      unit: "Unit 1",
+      status: "Published",
+      svgCount: 4,
+      topperSheet: "Available ✓",
+      learnLink: "/learn/punjab-11/unit-01/topic-1-3",
+      teachLink: "/teach/sdlc-phases-and-workflow",
     },
     {
-      id: "copper-warmth",
-      name: "Copper Warmth",
-      desc: "Warm copper accent theme for long reading",
-      primary: "#C2410C",
-      analogy: "#F59E0B",
-      tech: "#059669",
-      canvas: "#170E0A",
+      code: "Topic 1.4",
+      title: "Agile & Extreme Programming",
+      unit: "Unit 1",
+      status: "Draft",
+      svgCount: 2,
+      topperSheet: "Pending",
+      learnLink: "/learn/punjab-11/unit-01/topic-1-4",
+      teachLink: "/teach/sdlc-phases-and-workflow",
+    },
+    {
+      code: "Topic 1.5",
+      title: "System Design Tools & Diagrams",
+      unit: "Unit 1",
+      status: "Draft",
+      svgCount: 3,
+      topperSheet: "Pending",
+      learnLink: "/learn/punjab-11/unit-01/topic-1-5",
+      teachLink: "/teach/sdlc-phases-and-workflow",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-canvas text-foreground font-sans p-6 md:p-10 space-y-8 animate-in fade-in duration-300">
-      {/* Admin Shell Top Bar */}
-      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/learn/punjab-11/unit-01/topic-1-2"
-            className="p-2.5 rounded-xl bg-surface border border-border text-muted hover:text-foreground transition-all flex items-center gap-2 text-xs font-mono"
-          >
-            <ArrowLeft className="w-4 h-4 text-primary" />
-            <span>Back to Learning Studio</span>
-          </Link>
-
+    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col justify-between font-sans">
+      {/* 1. Super Admin TopBar */}
+      <header className="h-16 w-full bg-slate-950 border-b border-slate-800 px-6 flex items-center justify-between z-40 shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-gradient-to-tr from-indigo-600 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold font-mono shadow-md text-sm">
+            {settings.logoText || "CS"}
+          </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black tracking-tight text-foreground">
-                Admin Studio Management
-              </h1>
-              <span className="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-mono font-bold border border-primary/20">
-                System Core
+              <h1 className="font-bold text-base text-white">{settings.appName}</h1>
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                Production Live
               </span>
             </div>
-            <p className="text-xs text-muted font-mono">
-              Punjab Board Class 11 CS • Global Controls & Analytics
+            <p className="text-[11px] text-slate-400 font-mono">
+              Super Admin Management Portal &amp; Telemetry
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 bg-surface p-2 rounded-xl border border-border text-xs font-mono">
-          <span className="w-2 h-2 rounded-full bg-tech animate-ping" />
-          <span className="text-muted">Supabase DB Status:</span>
-          <span className="text-tech font-bold">Connected (ap-southeast-2)</span>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="px-3.5 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-mono font-bold text-slate-300 hover:text-white transition-all flex items-center gap-1.5"
+          >
+            <LayoutDashboard className="w-3.5 h-3.5" /> Student View
+          </Link>
+          <Link
+            href="/admin/settings"
+            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs font-mono shadow-md transition-all flex items-center gap-2"
+          >
+            <Settings className="w-4 h-4" /> Brand &amp; Appearance Settings
+          </Link>
         </div>
       </header>
 
-      {/* Main Grid Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column (2 Cols): Palette Manager & Brand Settings */}
-        <div className="lg:col-span-2 space-y-8">
-          {/* Card 1: 4-Palette Theme Engine Manager */}
-          <div className="p-6 md:p-8 rounded-3xl bg-surface border border-border shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-border pb-4">
-              <div className="flex items-center gap-2.5">
-                <Palette className="w-6 h-6 text-primary" />
-                <div>
-                  <h2 className="text-lg font-bold text-foreground">
-                    4-Palette Live CSS Theme Switcher
-                  </h2>
-                  <p className="text-xs text-muted">
-                    Toggle active CSS variable palettes across the entire platform in real time.
-                  </p>
-                </div>
-              </div>
+      {/* 2. Main Admin Dashboard Body */}
+      <div className="flex-1 max-w-7xl mx-auto w-full p-6 md:p-8 space-y-8">
+        {/* Top Hero Banner */}
+        <div className="p-6 md:p-8 rounded-3xl bg-slate-950 border border-slate-800 shadow-xl flex flex-wrap items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <span className="px-3 py-1 rounded-full bg-indigo-950 text-indigo-400 text-xs font-mono font-bold border border-indigo-800 inline-flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Super Admin Credentials Verified
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              Curriculum Control &amp; Branding Engine
+            </h2>
+            <p className="text-xs md:text-sm text-slate-400 leading-relaxed">
+              Manage platform identity ({settings.appName} • {settings.badgeText}), inspect curriculum topic manifests, and configure global appearance settings.
+            </p>
+          </div>
 
-              <span className="px-3 py-1 rounded-full bg-canvas text-xs font-mono text-primary font-bold border border-border">
-                Active: {activePalette}
+          <Link
+            href="/admin/settings"
+            className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-teal-500 hover:opacity-90 text-white font-bold text-xs font-mono shadow-lg transition-all flex items-center gap-2 shrink-0"
+          >
+            <Settings className="w-4 h-4" /> Edit Global Settings
+          </Link>
+        </div>
+
+        {/* 4-Card System Telemetry Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 shadow-md space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-slate-400 uppercase font-bold">
+                Enrolled Students
               </span>
+              <div className="p-2 rounded-xl bg-indigo-950 text-indigo-400 border border-indigo-800">
+                <Users className="w-4 h-4" />
+              </div>
             </div>
-
-            {/* 4 Palette Preview Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {palettes.map((p) => {
-                const isSelected = activePalette === p.id;
-                return (
-                  <button
-                    key={p.id}
-                    onClick={() => handlePaletteSelect(p.id)}
-                    className={`p-5 rounded-2xl border-2 text-left transition-all space-y-3 relative overflow-hidden ${
-                      isSelected
-                        ? "bg-canvas border-primary shadow-lg ring-2 ring-primary/20"
-                        : "bg-canvas/50 border-border hover:border-border/80 hover:bg-canvas"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-foreground">{p.name}</h3>
-                      {isSelected && (
-                        <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                      )}
-                    </div>
-
-                    <p className="text-[11px] text-muted leading-relaxed">{p.desc}</p>
-
-                    {/* Color Swatch Dots */}
-                    <div className="flex items-center gap-2 pt-2 border-t border-border/60">
-                      <span
-                        className="w-4 h-4 rounded-full border border-white/20"
-                        style={{ backgroundColor: p.primary }}
-                        title="Primary Color"
-                      />
-                      <span
-                        className="w-4 h-4 rounded-full border border-white/20"
-                        style={{ backgroundColor: p.analogy }}
-                        title="Analogy Color"
-                      />
-                      <span
-                        className="w-4 h-4 rounded-full border border-white/20"
-                        style={{ backgroundColor: p.tech }}
-                        title="Tech Color"
-                      />
-                      <span
-                        className="w-4 h-4 rounded-full border border-white/20"
-                        style={{ backgroundColor: p.canvas }}
-                        title="Canvas Background"
-                      />
-                      <span className="text-[10px] font-mono text-muted ml-auto">
-                        #{p.id.split("-")[0]}
-                      </span>
-                    </div>
-                  </button>
-                );
-              })}
+            <div className="space-y-1">
+              <h3 className="text-2xl font-black text-white font-mono">1,420</h3>
+              <p className="text-[11px] text-slate-400 font-medium">BISE Sargodha &amp; Lahore</p>
             </div>
           </div>
 
-          {/* Card 2: Global Brand & Curriculum Settings Form */}
-          <div className="p-6 md:p-8 rounded-3xl bg-surface border border-border shadow-xl space-y-6">
-            <div className="flex items-center justify-between border-b border-border pb-4">
-              <div className="flex items-center gap-2.5">
-                <Settings className="w-6 h-6 text-tech" />
-                <div>
-                  <h2 className="text-lg font-bold text-foreground">
-                    Global Branding & System Settings
-                  </h2>
-                  <p className="text-xs text-muted">
-                    Configure core app titles, shortcodes, and security guards.
-                  </p>
-                </div>
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 shadow-md space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-slate-400 uppercase font-bold">
+                Curriculum Coverage
+              </span>
+              <div className="p-2 rounded-xl bg-teal-950 text-teal-400 border border-teal-800">
+                <BookOpen className="w-4 h-4" />
               </div>
-
-              {savedSuccess && (
-                <span className="px-3 py-1 rounded-full bg-tech/15 text-tech text-xs font-mono font-bold border border-tech/30 animate-in fade-in">
-                  ✓ Settings Saved
-                </span>
-              )}
             </div>
+            <div className="space-y-1">
+              <h3 className="text-2xl font-black text-white font-mono">6 / 6 Units</h3>
+              <p className="text-[11px] text-slate-400 font-medium">Single National Curriculum</p>
+            </div>
+          </div>
 
-            <form onSubmit={handleSaveSettings} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-muted uppercase tracking-wider block">
-                    Application Name
-                  </label>
-                  <input
-                    type="text"
-                    value={appName}
-                    onChange={(e) => setAppName(e.target.value)}
-                    className="w-full p-3 rounded-xl bg-canvas border border-border text-xs text-foreground focus:outline-none focus:border-primary font-medium"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-muted uppercase tracking-wider block">
-                    Brand Shortcode
-                  </label>
-                  <input
-                    type="text"
-                    value={appLogoCode}
-                    onChange={(e) => setAppLogoCode(e.target.value)}
-                    className="w-full p-3 rounded-xl bg-canvas border border-border text-xs text-foreground focus:outline-none focus:border-primary font-mono font-bold"
-                  />
-                </div>
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 shadow-md space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-slate-400 uppercase font-bold">
+                Question Bank
+              </span>
+              <div className="p-2 rounded-xl bg-amber-950 text-amber-400 border border-amber-800">
+                <HelpCircle className="w-4 h-4" />
               </div>
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-2xl font-black text-white font-mono">850 Qs</h3>
+              <p className="text-[11px] text-slate-400 font-medium">Mapped with Rubric Notes</p>
+            </div>
+          </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-muted uppercase tracking-wider block">
-                  Curriculum Subtitle / Tagline
-                </label>
-                <input
-                  type="text"
-                  value={tagline}
-                  onChange={(e) => setTagline(e.target.value)}
-                  className="w-full p-3 rounded-xl bg-canvas border border-border text-xs text-foreground focus:outline-none focus:border-primary font-medium"
-                />
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 shadow-md space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono text-slate-400 uppercase font-bold">
+                Security Status
+              </span>
+              <div className="p-2 rounded-xl bg-emerald-950 text-emerald-400 border border-emerald-800">
+                <ShieldCheck className="w-4 h-4" />
               </div>
-
-              <div className="space-y-1.5">
-                <label className="text-xs font-mono text-muted uppercase tracking-wider block">
-                  Footer Copyright Attribution
-                </label>
-                <input
-                  type="text"
-                  value={copyright}
-                  onChange={(e) => setCopyright(e.target.value)}
-                  className="w-full p-3 rounded-xl bg-canvas border border-border text-xs text-foreground focus:outline-none focus:border-primary font-mono"
-                />
-              </div>
-
-              {/* Anti-Tamper Guard Toggle */}
-              <div className="p-4 rounded-2xl bg-canvas border border-border flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-analogy" />
-                    <span className="text-xs font-bold text-foreground">
-                      Anti-Tamper Content Security Guard
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-muted">
-                    Intercept right-click context menu and DevTools inspection shortcuts across educational modules.
-                  </p>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setAntiTamper(!antiTamper)}
-                  className={`w-12 h-6 rounded-full transition-colors relative p-1 ${
-                    antiTamper ? "bg-primary" : "bg-surface-hover border border-border"
-                  }`}
-                >
-                  <div
-                    className={`w-4 h-4 rounded-full bg-white transition-transform ${
-                      antiTamper ? "translate-x-6" : "translate-x-0"
-                    }`}
-                  />
-                </button>
-              </div>
-
-              <div className="pt-2 flex justify-end">
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-all flex items-center gap-2 shadow-md active:scale-95"
-                >
-                  <Save className="w-4 h-4" />
-                  <span>Save Brand Settings</span>
-                </button>
-              </div>
-            </form>
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-2xl font-black text-emerald-400 font-mono">Active ✓</h3>
+              <p className="text-[11px] text-slate-400 font-medium">Anti-Tamper Guard Active</p>
+            </div>
           </div>
         </div>
 
-        {/* Right Column (1 Col): Syllabus Pairing & Diagnostic Metrics */}
-        <div className="space-y-8">
-          {/* Card 3: Punjab Board 11th Class Pairing Scheme Distribution */}
-          <div className="p-6 rounded-3xl bg-surface border border-border shadow-xl space-y-4">
-            <div className="flex items-center gap-2.5 border-b border-border pb-3">
-              <Award className="w-5 h-5 text-analogy" />
-              <div>
-                <h3 className="text-sm font-bold text-foreground">
-                  11th Class Board Weightage Distribution
-                </h3>
-                <span className="text-[10px] font-mono text-muted">PECTAA Pairing Scheme</span>
-              </div>
+        {/* Curriculum Topic Manifest Table */}
+        <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 shadow-xl space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 className="text-base font-bold text-white">Curriculum Topic Manifest</h3>
+              <p className="text-xs text-slate-400">
+                Manage, preview, and audit published topics across Grade 11 CS syllabus.
+              </p>
             </div>
-
-            <div className="space-y-2.5">
-              {[
-                { unit: "Unit 1: Software Development", marks: "9 Marks", detail: "1 Long Q + 2 Short Qs" },
-                { unit: "Unit 2: Data Communication", marks: "9 Marks", detail: "1 Long Q + 2 Short Qs" },
-                { unit: "Unit 3: Computer Architecture", marks: "11 Marks", detail: "1 Long Q + 3 Short Qs" },
-                { unit: "Unit 4: Applications of IT", marks: "4 Marks", detail: "0 Long Q + 2 Short Qs" },
-                { unit: "Unit 5: Security & Ethics", marks: "9 Marks", detail: "1 Long Q + 2 Short Qs" },
-                { unit: "Units 6-9: Office & DB Tools", marks: "13 Marks", detail: "1 Long Q + 4 Short Qs" },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-3 rounded-xl bg-canvas border border-border flex items-center justify-between text-xs"
-                >
-                  <div className="space-y-0.5">
-                    <span className="font-semibold text-foreground block">{item.unit}</span>
-                    <span className="text-[10px] font-mono text-muted">{item.detail}</span>
-                  </div>
-                  <span className="px-2 py-0.5 rounded bg-primary/10 text-primary font-mono font-bold text-[11px]">
-                    {item.marks}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <span className="text-xs font-mono text-indigo-400 font-bold">
+              {manifestTopics.length} Topics Cataloged
+            </span>
           </div>
 
-          {/* Card 4: Student Checkpoint Difficulty & Diagnostics */}
-          <div className="p-6 rounded-3xl bg-surface border border-border shadow-xl space-y-4">
-            <div className="flex items-center gap-2.5 border-b border-border pb-3">
-              <BarChart3 className="w-5 h-5 text-tech" />
-              <div>
-                <h3 className="text-sm font-bold text-foreground">
-                  Student Diagnostics & Misconceptions
-                </h3>
-                <span className="text-[10px] font-mono text-muted">Topic 1.2 SDLC Checkpoints</span>
-              </div>
-            </div>
-
-            <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-xl bg-canvas border border-border space-y-1">
-                <span className="text-[10px] font-mono text-tech uppercase font-bold block">
-                  Highest Confusion Concept:
-                </span>
-                <p className="font-medium text-foreground">
-                  Analysis (SRS) vs System Design (DDS)
-                </p>
-                <p className="text-[11px] text-muted leading-relaxed">
-                  22% of students confuse SRS requirements with DDS architecture models.
-                </p>
-              </div>
-
-              <div className="p-3 rounded-xl bg-canvas border border-border space-y-1">
-                <span className="text-[10px] font-mono text-analogy uppercase font-bold block">
-                  Board Past Paper Hit Rate:
-                </span>
-                <p className="font-medium text-foreground">
-                  80% Exam Appearance Rate
-                </p>
-                <p className="text-[11px] text-muted leading-relaxed">
-                  SDLC 6-phase question appeared in 8 out of 10 recent annual board papers.
-                </p>
-              </div>
-            </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                  <th className="py-3 px-4">Topic Code</th>
+                  <th className="py-3 px-4">Title</th>
+                  <th className="py-3 px-4">Unit</th>
+                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4">SVG Vectors</th>
+                  <th className="py-3 px-4">Topper Guide</th>
+                  <th className="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-xs">
+                {manifestTopics.map((topic, idx) => (
+                  <tr key={idx} className="hover:bg-slate-900/60 transition-colors">
+                    <td className="py-3.5 px-4 font-mono font-bold text-indigo-400">
+                      {topic.code}
+                    </td>
+                    <td className="py-3.5 px-4 font-semibold text-white">
+                      {topic.title}
+                    </td>
+                    <td className="py-3.5 px-4 text-slate-400 font-mono">
+                      {topic.unit}
+                    </td>
+                    <td className="py-3.5 px-4">
+                      <span
+                        className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                          topic.status === "Published"
+                            ? "bg-emerald-950 text-emerald-400 border border-emerald-800"
+                            : "bg-amber-950 text-amber-400 border border-amber-800"
+                        }`}
+                      >
+                        {topic.status}
+                      </span>
+                    </td>
+                    <td className="py-3.5 px-4 font-mono text-slate-300">
+                      {topic.svgCount} Vectors
+                    </td>
+                    <td className="py-3.5 px-4 font-mono text-emerald-400">
+                      {topic.topperSheet}
+                    </td>
+                    <td className="py-3.5 px-4 text-right space-x-2">
+                      <Link
+                        href={topic.learnLink}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-mono text-[11px] transition-colors"
+                      >
+                        <span>Student View</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </Link>
+                      <Link
+                        href={topic.teachLink}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-950 hover:bg-indigo-900 text-indigo-300 border border-indigo-800 font-mono text-[11px] transition-colors"
+                      >
+                        <span>Teacher Console</span>
+                        <Edit className="w-3 h-3" />
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="h-10 w-full bg-slate-950 border-t border-slate-800 px-6 flex items-center justify-between text-xs font-mono text-slate-500">
+        <span>{settings.appName} • Super Admin Management Portal</span>
+        <span>Copyright © 2026 {settings.copyrightHolder}</span>
+      </footer>
     </div>
   );
 }
