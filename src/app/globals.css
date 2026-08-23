@@ -4,6 +4,8 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f1f5f9; /* bg-slate-100 */
+  color: #1e293b; /* text-slate-800 */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -12,7 +14,7 @@ body {
 
 .urdu-script {
   font-family: 'Noto Nastaliq Urdu', serif;
-  line-height: 2.1;
+  line-height: 2.2;
   direction: rtl;
 }
 
@@ -32,8 +34,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 9999px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #263147;
 }

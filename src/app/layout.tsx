@@ -38,7 +38,7 @@ export default function RootLayout({
       lang="en"
       className={`${plusJakartaSans.variable} ${notoNastaliqUrdu.variable} ${jetBrainsMono.variable}`}
     >
-      <body className="min-h-screen w-screen overflow-x-hidden bg-slate-100 text-slate-800 dark:bg-[#0f131a] dark:text-slate-200 font-sans">
+      <body className="min-h-screen w-screen overflow-x-hidden bg-slate-100 text-slate-800 font-sans">
         <BrandProvider>
           {children}
           <AntiTamperGuard />
