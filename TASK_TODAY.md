@@ -14,9 +14,12 @@
 - [x] Build Branded Bottom Footer (`Footer.tsx`) with PCTB attribution
 - [x] Wire persistent Learning Layout (`src/app/learn/[curriculum]/[unit]/[topic]/layout.tsx`)
 - [x] Scaffold Topic Page (`src/app/learn/[curriculum]/[unit]/[topic]/page.tsx`) with SDLC hero and Urdu hook
-- [x] Verify build (`npm run build`) with 0 compile/lint errors
+- [x] Setup Prisma ORM schema ([prisma/schema.prisma](file:///Users/uzair/Dev/cs-studio/prisma/schema.prisma)) database-agnostic models
+- [x] Create Prisma Client utility singleton ([src/lib/prisma.ts](file:///Users/uzair/Dev/cs-studio/src/lib/prisma.ts))
+- [x] Build complete dataset for Unit 1 Topic 1.2 ([src/data/punjab-11/unit-01.json](file:///Users/uzair/Dev/cs-studio/src/data/punjab-11/unit-01.json)) with all 6 SDLC phases, Urdu hooks, technical deliverables, and Board Checkpoint MCQs
+- [x] Validate Prisma schema (`npx prisma validate`) & build (`npm run build`)
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Shell layout architecture complete, verified, and synced to GitHub (`origin/main`).
+- **Current Step**: Prisma ORM models, singleton DB utility, and complete Unit 1 SDLC dataset verified and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
