@@ -9,8 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        canvas: "var(--canvas)",
+        surface: {
+          DEFAULT: "var(--surface)",
+          hover: "var(--surface-hover)",
+        },
+        primary: {
+          DEFAULT: "var(--primary)",
+          rgb: "rgba(var(--primary-rgb), <alpha-value>)",
+        },
+        analogy: {
+          DEFAULT: "var(--analogy)",
+          rgb: "rgba(var(--analogy-rgb), <alpha-value>)",
+        },
+        tech: {
+          DEFAULT: "var(--tech)",
+          rgb: "rgba(var(--tech-rgb), <alpha-value>)",
+        },
         foreground: "var(--foreground)",
+        muted: "var(--muted)",
+        border: "var(--border)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        urdu: ["var(--font-urdu)", "serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
     },
   },

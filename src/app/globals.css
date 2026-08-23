@@ -2,20 +2,115 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 4-Palette CSS Variable Engine */
+
+/* 1. Default Palette: editorial-indigo */
+:root, [data-theme="editorial-indigo"] {
+  --primary: #6366F1;
+  --primary-rgb: 99, 102, 241;
+  --analogy: #F59E0B;
+  --analogy-rgb: 245, 158, 11;
+  --tech: #0D9488;
+  --tech-rgb: 13, 148, 136;
+  --canvas: #0C0F16;
+  --surface: #131722;
+  --surface-hover: #1C2234;
+  --foreground: #F3F4F6;
+  --muted: #9CA3AF;
+  --border: #1F293D;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 2. Palette: obsidian-projector */
+[data-theme="obsidian-projector"] {
+  --primary: #64748B;
+  --primary-rgb: 100, 116, 139;
+  --analogy: #D97706;
+  --analogy-rgb: 217, 119, 6;
+  --tech: #94A3B8;
+  --tech-rgb: 148, 163, 184;
+  --canvas: #020408;
+  --surface: #0B1120;
+  --surface-hover: #151E32;
+  --foreground: #E2E8F0;
+  --muted: #64748B;
+  --border: #1E293B;
+}
+
+/* 3. Palette: emerald-focus */
+[data-theme="emerald-focus"] {
+  --primary: #059669;
+  --primary-rgb: 5, 150, 105;
+  --analogy: #EA580C;
+  --analogy-rgb: 234, 88, 12;
+  --tech: #14B8A6;
+  --tech-rgb: 20, 184, 166;
+  --canvas: #091512;
+  --surface: #11221D;
+  --surface-hover: #1A332C;
+  --foreground: #ECFDF5;
+  --muted: #6EE7B7;
+  --border: #1F3A32;
+}
+
+/* 4. Palette: copper-warmth */
+[data-theme="copper-warmth"] {
+  --primary: #C2410C;
+  --primary-rgb: 194, 65, 12;
+  --analogy: #F59E0B;
+  --analogy-rgb: 245, 158, 11;
+  --tech: #059669;
+  --tech-rgb: 5, 150, 105;
+  --canvas: #170E0A;
+  --surface: #241812;
+  --surface-hover: #33221A;
+  --foreground: #FFF7ED;
+  --muted: #FDBA74;
+  --border: #3B261D;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--canvas);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Urdu Script Typography Class */
+.urdu-script {
+  font-family: var(--font-urdu), 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.2;
+}
+
+/* Content Protection Utility Class */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Custom Thin Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }

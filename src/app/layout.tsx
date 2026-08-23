@@ -1,20 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Noto_Nastaliq_Urdu, JetBrains_Mono } from "next/font/google";
+import { AntiTamperGuard } from "@/components/security/AntiTamperGuard";
 import "./globals.css";
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
-const robotoMono = Roboto_Mono({
+const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-urdu",
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "CS Studio",
-  description: "Computer Science Learning & Presenter Platform",
+  title: "CS Studio • Interactive Pedagogy & Presenter",
+  description: "Digital computer science education and presentation platform.",
 };
 
 export default function RootLayout({
@@ -23,9 +33,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
-      <body className="antialiased min-h-screen bg-background text-foreground">
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${notoNastaliqUrdu.variable} ${jetBrainsMono.variable}`}
+      data-theme="editorial-indigo"
+    >
+      <body className="h-screen w-screen overflow-hidden flex flex-col justify-between no-select bg-canvas text-foreground font-sans">
         {children}
+        <AntiTamperGuard />
       </body>
     </html>
   );
