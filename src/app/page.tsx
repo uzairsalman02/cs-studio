@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
+import React from "react";
+import { TopicStudio } from "@/components/studio/TopicStudio";
 
 export default function Home() {
-  redirect("/learn/punjab-11/unit-01/topic-1-2");
+  return <TopicStudio />;
 }
