@@ -1,6 +1,12 @@
 {
-  "curriculum": "SNC Punjab Grade 11",
+  "curriculum": {
+    "id": "curriculum-snc-11",
+    "title": "Punjab Board - SNC 2023 / PECTAA",
+    "boardType": "SNC_PUNJAB",
+    "isActive": true
+  },
   "unit": {
+    "id": "unit-1",
     "unitNumber": 1,
     "title": "Software Development",
     "pairingSchemeNote": "Exam Weightage: 1 Long Question (5 Marks) + 2 Short Questions (4 Marks)",
@@ -23,120 +29,96 @@
           {
             "stageNumber": 1,
             "stageTitle": "Planning & Feasibility Study",
-            "teacherSpokenCue": "بچو! جیسے بغیر نقشے اور بجٹ کے گھر نہیں بنتا، اسی طرح بغیر پلاننگ کے کوئی سافٹ ویئر نہیں بن سکتا۔",
-            "realWorldAnalogyEn": "Conducting a land plot survey, checking local building bylaws, and estimating total financial budget before laying house foundations.",
-            "realWorldAnalogyUr": "گھر کی تعمیر شروع کرنے سے پہلے پلاٹ کا معائنہ، بجٹ کا تخمینہ اور منظوری حاصل کرنا۔",
-            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='30' width='60' height='50' fill='none' stroke='currentColor' stroke-width='4'/><path d='M10 35 L50 10 L90 35' fill='none' stroke='currentColor' stroke-width='4'/></svg>",
-            "softwareDeliverables": [
-              "Feasibility Study Report",
-              "Project Scope Charter",
-              "Cost-Benefit Analysis"
-            ],
-            "skipWarning": "Skipping feasibility planning leads to project abandonment due to budget overruns or technical impossibility.",
-            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='15' y='15' width='70' height='70' rx='8' fill='none' stroke='currentColor' stroke-width='4'/><line x1='30' y1='35' x2='70' y2='35' stroke='currentColor' stroke-width='4'/><line x1='30' y1='50' x2='60' y2='50' stroke='currentColor' stroke-width='4'/></svg>"
+            "teacherSpokenCue": "جب آپ کوئی نیا مکان بنانا چاہتے ہیں تو اینٹیں خریدنے سے پہلے پلاٹ کا سروے، بجٹ اور قانونی منظوری حاصل کرتے ہیں، بالکل ایسے ہی سافٹ ویئر شروع کرنے سے پہلے اس کی Feasibility اور Budget طے کیا جاتا ہے۔",
+            "realWorldAnalogyEn": "Before constructing a physical house, you hire a land surveyor to measure the plot, verify building laws, and estimate the financial budget to ensure the project is financially and physically viable.",
+            "realWorldAnalogyUr": "مکان کی تعمیر سے پہلے پلاٹ کی پیمائش، بجٹ کا تخمینہ اور حکومتی این او سی (NOC) حاصل کرنا تاکہ پروجیکٹ ادھورا نہ رہے۔",
+            "realWorldVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><defs><pattern id=\"grid1\" width=\"16\" height=\"16\" patternUnits=\"userSpaceOnUse\"><path d=\"M 16 0 L 0 0 0 16\" fill=\"none\" stroke=\"#1E293B\" stroke-width=\"0.8\"/></pattern></defs><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect width=\"400\" height=\"180\" fill=\"url(#grid1)\"/><polygon points=\"30,40 170,30 190,140 40,150\" fill=\"rgba(245, 158, 11, 0.08)\" stroke=\"#F59E0B\" stroke-width=\"2\" stroke-dasharray=\"4 2\"/><circle cx=\"30\" cy=\"40\" r=\"4\" fill=\"#F59E0B\"/><circle cx=\"170\" cy=\"30\" r=\"4\" fill=\"#F59E0B\"/><circle cx=\"190\" cy=\"140\" r=\"4\" fill=\"#F59E0B\"/><circle cx=\"40\" cy=\"150\" r=\"4\" fill=\"#F59E0B\"/><text x=\"50\" y=\"25\" fill=\"#F59E0B\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">SURVEY PERIMETER: 450 FT</text><path d=\"M 45,60 Q 90,80 165,70\" fill=\"none\" stroke=\"#F59E0B\" stroke-width=\"1\" opacity=\"0.4\"/><path d=\"M 40,90 Q 110,110 175,100\" fill=\"none\" stroke=\"#F59E0B\" stroke-width=\"1\" opacity=\"0.4\"/><rect x=\"220\" y=\"25\" width=\"150\" height=\"130\" fill=\"#0F172A\" stroke=\"#334155\" stroke-width=\"1.5\" rx=\"6\"/><rect x=\"220\" y=\"25\" width=\"150\" height=\"24\" fill=\"#1E293B\" rx=\"6\"/><text x=\"230\" y=\"41\" fill=\"#F59E0B\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">FEASIBILITY BUDGET</text><line x1=\"230\" y1=\"65\" x2=\"350\" y2=\"65\" stroke=\"#334155\" stroke-width=\"1\"/><line x1=\"230\" y1=\"85\" x2=\"350\" y2=\"85\" stroke=\"#334155\" stroke-width=\"1\"/><line x1=\"230\" y1=\"105\" x2=\"350\" y2=\"105\" stroke=\"#334155\" stroke-width=\"1\"/><text x=\"230\" y=\"60\" fill=\"#94A3B8\" font-size=\"9\" font-family=\"monospace\">Land Cost: Rs 5.0M</text><text x=\"230\" y=\"80\" fill=\"#94A3B8\" font-size=\"9\" font-family=\"monospace\">Soil Test: PASSED</text><text x=\"230\" y=\"100\" fill=\"#94A3B8\" font-size=\"9\" font-family=\"monospace\">Govt NOC: APPROVED</text><text x=\"230\" y=\"130\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">VERDICT: VIABLE ✓</text><circle cx=\"345\" cy=\"125\" r=\"16\" fill=\"none\" stroke=\"#10B981\" stroke-width=\"1.5\" stroke-dasharray=\"3 1\"/><text x=\"333\" y=\"128\" fill=\"#10B981\" font-size=\"7\" font-family=\"monospace\" font-weight=\"bold\">SEALED</text></svg>",
+            "softwareDeliverables": ["Project Feasibility Report", "Cost-Benefit Analysis Matrix", "Project Charter"],
+            "skipWarning": "Skipping planning causes budget overruns of 300% and project abandonment due to unexpected technical deadlocks.",
+            "softwareVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><polygon points=\"110,35 40,145 180,145\" fill=\"rgba(13, 148, 136, 0.1)\" stroke=\"#0D9488\" stroke-width=\"2\"/><circle cx=\"110\" cy=\"35\" r=\"5\" fill=\"#0D9488\"/><circle cx=\"40\" cy=\"145\" r=\"5\" fill=\"#0D9488\"/><circle cx=\"180\" cy=\"145\" r=\"5\" fill=\"#0D9488\"/><text x=\"90\" y=\"22\" fill=\"#0D9488\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">SCOPE</text><text x=\"10\" y=\"162\" fill=\"#0D9488\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">COST ($)</text><text x=\"165\" y=\"162\" fill=\"#0D9488\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">TIME (Days)</text><text x=\"75\" y=\"100\" fill=\"#F59E0B\" font-size=\"9\" font-family=\"monospace\" font-weight=\"bold\">FEASIBILITY</text><rect x=\"220\" y=\"25\" width=\"155\" height=\"130\" fill=\"#0F172A\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"8\"/><rect x=\"220\" y=\"25\" width=\"155\" height=\"24\" fill=\"#131D31\" rx=\"8\"/><text x=\"232\" y=\"41\" fill=\"#0D9488\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">FEASIBILITY MATRIX</text><text x=\"232\" y=\"65\" fill=\"#F8FAFC\" font-size=\"9\" font-family=\"monospace\">1. Tech Feasibility [✓]</text><text x=\"232\" y=\"85\" fill=\"#F8FAFC\" font-size=\"9\" font-family=\"monospace\">2. Economic Return [✓]</text><text x=\"232\" y=\"105\" fill=\"#F8FAFC\" font-size=\"9\" font-family=\"monospace\">3. Operational Fit [✓]</text><text x=\"232\" y=\"125\" fill=\"#F8FAFC\" font-size=\"9\" font-family=\"monospace\">4. Legal Schedule  [✓]</text><rect x=\"232\" y=\"135\" width=\"130\" height=\"14\" fill=\"#0D9488\" rx=\"4\"/><text x=\"245\" y=\"146\" fill=\"#FFFFFF\" font-size=\"8\" font-family=\"monospace\" font-weight=\"bold\">PROJECT CHARTER SIGNED</text></svg>"
           },
           {
             "stageNumber": 2,
-            "stageTitle": "Analysis & Requirement Engineering",
-            "teacherSpokenCue": "اس مرحلے میں ہم کلائنٹ کی تمام ضروریات اور مسائل کو تفصیل سے نوٹ کرتے ہیں۔",
-            "realWorldAnalogyEn": "An architect interviewing the client to detail room dimensions, kitchen layout, and electrical point preferences.",
-            "realWorldAnalogyUr": "معمار (آرکیٹیکٹ) کا کلائنٹ کے ساتھ تفصیلی انٹرویو تاکہ گھر کی تمام ضروریات کا پتا چل سکے۔",
-            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='35' r='20' fill='none' stroke='currentColor' stroke-width='4'/><path d='M20 85 C20 60 80 60 80 85' fill='none' stroke='currentColor' stroke-width='4'/></svg>",
-            "softwareDeliverables": [
-              "Software Requirement Specification (SRS)",
-              "Use Case Scenarios",
-              "User Requirement Document"
-            ],
-            "skipWarning": "Incomplete requirements force expensive redesigns during coding.",
-            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M25 20 H75 V80 H25 Z' fill='none' stroke='currentColor' stroke-width='4'/><polyline points='35,45 45,55 65,35' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+            "stageTitle": "Requirement Analysis",
+            "teacherSpokenCue": "آرکیٹیکٹ کلائنٹ سے پوچھتا ہے کہ کتنے کمرے چاہیے؟ کچن کہاں بنے گا؟ بالکل اسی طرح سسٹمز اینالسٹ کسٹمر سے پوچھ کر SRS Document تیار کرتا ہے۔",
+            "realWorldAnalogyEn": "The architect sits with the home buyer to list exact needs: 4 bedrooms, 1 kitchen, 2 garages, and a garden layout.",
+            "realWorldAnalogyUr": "مالکِ مکان سے ہر کمرے کا سائز، واش رومز کی تعداد اور سہولیات کی تفصیل پوچھ کر فہرست بنانا۔",
+            "realWorldVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"40\" y=\"30\" width=\"320\" height=\"120\" fill=\"#0F172A\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"60\" y=\"60\" fill=\"#F59E0B\" font-size=\"12\" font-family=\"monospace\" font-weight=\"bold\">CLIENT REQUIREMENTS INTERVIEW</text><text x=\"60\" y=\"85\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Bedrooms: 4 Units (Attached Baths)</text><text x=\"60\" y=\"105\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Solar Backup: 10kW Inverter System</text><text x=\"60\" y=\"125\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Garage Capacity: 2 SUV Vehicles</text></svg>",
+            "softwareDeliverables": ["Software Requirement Specification (SRS)", "Use Case Scenarios", "System Workflow Diagram"],
+            "skipWarning": "Skipping requirement analysis results in building a system that users reject because core functional features were missed.",
+            "softwareVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"50\" y=\"25\" width=\"300\" height=\"130\" fill=\"#0F172A\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"8\"/><rect x=\"50\" y=\"25\" width=\"300\" height=\"28\" fill=\"#13232B\" rx=\"8\"/><text x=\"70\" y=\"44\" fill=\"#0D9488\" font-size=\"11\" font-family=\"monospace\" font-weight=\"bold\">DOCUMENT: SOFTWARE REQUIREMENT SPECIFICATION (SRS)</text><text x=\"70\" y=\"75\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\">1. Functional Requirements (Auth, Payments, API)</text><text x=\"70\" y=\"95\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\">2. Non-Functional Requirements (99.9% Uptime)</text><text x=\"70\" y=\"115\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\">3. Hardware & Network Constraints</text><text x=\"70\" y=\"135\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">STATUS: APPROVED BY STAKEHOLDERS ✓</text></svg>"
           },
           {
             "stageNumber": 3,
             "stageTitle": "System Design",
-            "teacherSpokenCue": "یہاں سافٹ ویئر کا تکنیکی ڈھانچہ، ڈیتابیس اور آرکیٹیکچر ڈیزائن کیا جاتا ہے۔",
-            "realWorldAnalogyEn": "Drawing detailed architectural floor blueprints, 3D elevation renders, and electrical wiring schematics.",
-            "realWorldAnalogyUr": "گھر کا باقاعدہ نقشہ، 3D ماڈل اور الیکٹرک پلمبنگ ڈایاگرام بنانا۔",
-            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='20' width='60' height='60' fill='none' stroke='currentColor' stroke-width='4'/><line x1='20' y1='50' x2='80' y2='50' stroke='currentColor' stroke-width='2'/></svg>",
-            "softwareDeliverables": [
-              "Design Document Specification (DDS)",
-              "Entity-Relationship Diagrams (ERD)",
-              "System Architecture & UI Wireframes"
-            ],
-            "skipWarning": "Poor architectural design creates performance bottlenecks and security vulnerabilities.",
-            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='20' width='30' height='25' fill='none' stroke='currentColor' stroke-width='4'/><rect x='60' y='20' width='30' height='25' fill='none' stroke='currentColor' stroke-width='4'/><rect x='35' y='65' width='30' height='25' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+            "teacherSpokenCue": "اینٹیں رکھنے سے پہلے مکان کا تفصیلی بلوا پرنٹ (Map Diagram) کاغذ پر ڈرا کیا جاتا ہے، جس میں سیوریج، الیکٹرک وائرنگ اور کمروں کے سائز طے ہوتے ہیں۔ بالکل ایسے ہی سسٹم ڈیزائنرز DDS اور Database Schemas بناتے ہیں۔",
+            "realWorldAnalogyEn": "The draftsperson creates a detailed 2D architectural blueprint map showing dimension lines, room partitions, and electrical conduit lines before construction begins.",
+            "realWorldAnalogyUr": "کاغذ پر مکان کا تفصیلی نقشہ (Blue Print) تیار کرنا جس میں کمرے، سیوریج، اور وائرنگ کی پوزیشن واضح ہو۔",
+            "realWorldVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><defs><pattern id=\"grid3\" width=\"12\" height=\"12\" patternUnits=\"userSpaceOnUse\"><path d=\"M 12 0 L 0 0 0 12\" fill=\"none\" stroke=\"#1E293B\" stroke-width=\"0.8\"/></pattern></defs><rect width=\"400\" height=\"180\" fill=\"#091122\" rx=\"10\"/><rect width=\"400\" height=\"180\" fill=\"url(#grid3)\"/><rect x=\"40\" y=\"30\" width=\"320\" height=\"120\" fill=\"none\" stroke=\"#F59E0B\" stroke-width=\"3\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"150\" stroke=\"#F59E0B\" stroke-width=\"2\"/><line x1=\"160\" y1=\"90\" x2=\"360\" y2=\"90\" stroke=\"#F59E0B\" stroke-width=\"2\"/><line x1=\"260\" y1=\"90\" x2=\"260\" y2=\"150\" stroke=\"#F59E0B\" stroke-width=\"2\"/><path d=\"M 160,60 A 20 20 0 0 1 180,80\" fill=\"none\" stroke=\"#F59E0B\" stroke-width=\"1.5\" stroke-dasharray=\"2 2\"/><path d=\"M 260,120 A 20 20 0 0 1 280,140\" fill=\"none\" stroke=\"#F59E0B\" stroke-width=\"1.5\" stroke-dasharray=\"2 2\"/><text x=\"65\" y=\"85\" fill=\"#F8FAFC\" font-size=\"11\" font-family=\"monospace\" font-weight=\"bold\">MASTER BED</text><text x=\"75\" y=\"102\" fill=\"#F59E0B\" font-size=\"9\" font-family=\"monospace\">16' x 14'</text><text x=\"210\" y=\"60\" fill=\"#F8FAFC\" font-size=\"11\" font-family=\"monospace\" font-weight=\"bold\">KITCHEN</text><text x=\"220\" y=\"75\" fill=\"#F59E0B\" font-size=\"9\" font-family=\"monospace\">10' x 12'</text><text x=\"180\" y=\"125\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">LIVING</text><text x=\"280\" y=\"125\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">BATH</text></svg>",
+            "softwareDeliverables": ["Design Document Specification (DDS)", "UML Class Diagrams", "Entity-Relationship Diagrams (ERD)", "API Architecture Schema"],
+            "skipWarning": "Skipping system design results in unstructured code spaghetti, database deadlock bottlenecks, and impossible scalability.",
+            "softwareVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"25\" y=\"30\" width=\"110\" height=\"115\" fill=\"#0F172A\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"6\"/><rect x=\"25\" y=\"30\" width=\"110\" height=\"22\" fill=\"#13232B\" rx=\"6\"/><text x=\"40\" y=\"45\" fill=\"#0D9488\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">«Class» User</text><line x1=\"25\" y1=\"52\" x2=\"135\" y2=\"52\" stroke=\"#0D9488\" stroke-width=\"1\"/><text x=\"32\" y=\"67\" fill=\"#94A3B8\" font-size=\"8\" font-family=\"monospace\">+ id: Int</text><text x=\"32\" y=\"79\" fill=\"#94A3B8\" font-size=\"8\" font-family=\"monospace\">+ name: String</text><text x=\"32\" y=\"91\" fill=\"#94A3B8\" font-size=\"8\" font-family=\"monospace\">+ email: String</text><line x1=\"25\" y1=\"98\" x2=\"135\" y2=\"98\" stroke=\"#0D9488\" stroke-width=\"1\"/><text x=\"32\" y=\"113\" fill=\"#0D9488\" font-size=\"8\" font-family=\"monospace\">+ login(): Bool</text><text x=\"32\" y=\"125\" fill=\"#0D9488\" font-size=\"8\" font-family=\"monospace\">+ getProfile()</text><line x1=\"135\" y1=\"85\" x2=\"215\" y2=\"85\" stroke=\"#0D9488\" stroke-width=\"2\" stroke-dasharray=\"4 2\"/><polygon points=\"215,80 225,85 215,90\" fill=\"#0D9488\"/><text x=\"155\" y=\"78\" fill=\"#F59E0B\" font-size=\"8\" font-family=\"monospace\">1 : N</text><rect x=\"225\" y=\"30\" width=\"145\" height=\"115\" fill=\"#0F172A\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"6\"/><rect x=\"225\" y=\"30\" width=\"145\" height=\"22\" fill=\"#13232B\" rx=\"6\"/><text x=\"240\" y=\"45\" fill=\"#0D9488\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">«Class» OrderSystem</text><line x1=\"225\" y1=\"52\" x2=\"370\" y2=\"52\" stroke=\"#0D9488\" stroke-width=\"1\"/><text x=\"232\" y=\"67\" fill=\"#94A3B8\" font-size=\"8\" font-family=\"monospace\">+ orderId: UUID</text><text x=\"232\" y=\"79\" fill=\"#94A3B8\" font-size=\"8\" font-family=\"monospace\">+ amount: Float</text><text x=\"232\" y=\"91\" fill=\"#94A3B8\" font-size=\"8\" font-family=\"monospace\">+ status: Enum</text><line x1=\"225\" y1=\"98\" x2=\"370\" y2=\"98\" stroke=\"#0D9488\" stroke-width=\"1\"/><text x=\"232\" y=\"113\" fill=\"#0D9488\" font-size=\"8\" font-family=\"monospace\">+ processPayment()</text><text x=\"232\" y=\"125\" fill=\"#0D9488\" font-size=\"8\" font-family=\"monospace\">+ generateInvoice()</text></svg>"
           },
           {
             "stageNumber": 4,
-            "stageTitle": "Implementation / Coding",
-            "teacherSpokenCue": "ڈویلپرز اب پروگرامنگ زبانوں (مثلاً C++ یا Python) میں باقاعدہ کوڈ لکھتے ہیں۔",
-            "realWorldAnalogyEn": "Masons, carpenters, and electricians actively laying bricks, mixing cement, and constructing physical rooms according to the blueprint.",
-            "realWorldAnalogyUr": "مستری اور مزدوروں کا نقشے کے مطابق اینٹیں چننا اور گھر کی تعمیر مکمل کرنا۔",
-            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='15' y='20' width='70' height='15' fill='none' stroke='currentColor' stroke-width='3'/><rect x='15' y='40' width='70' height='15' fill='none' stroke='currentColor' stroke-width='3'/><rect x='15' y='60' width='70' height='15' fill='none' stroke='currentColor' stroke-width='3'/></svg>",
-            "softwareDeliverables": [
-              "Executable Source Code Modules",
-              "Code Repository & Commits",
-              "API & Module Documentation"
-            ],
-            "skipWarning": "Unorganized coding without design guidelines produces unmaintainable 'spaghetti code'.",
-            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><polyline points='30,30 15,50 30,70' fill='none' stroke='currentColor' stroke-width='4'/><polyline points='70,30 85,50 70,70' fill='none' stroke='currentColor' stroke-width='4'/><line x1='55' y1='25' x2='45' y2='75' stroke='currentColor' stroke-width='4'/></svg>"
+            "stageTitle": "Implementation (Coding)",
+            "teacherSpokenCue": "نقشہ پاس ہونے کے بعد راج مستری اینٹیں، سیمنٹ اور لکڑی کا کام شروع کرتے ہیں۔ نرم افزار انجینئرنگ میں پروگرامرز C++/Python میں کوڈ لکھتے ہیں۔",
+            "realWorldAnalogyEn": "Masons and carpenters lay physical bricks, pour concrete pillars, and install window frames according to the architectural map.",
+            "realWorldAnalogyUr": "نقشے کے مطابق اینٹیں چننا، لینٹر ڈالنا اور دروازے و کھڑکیاں نصب کرنا۔",
+            "realWorldVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"60\" y=\"40\" width=\"280\" height=\"100\" fill=\"#0F172A\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"80\" y=\"75\" fill=\"#F59E0B\" font-size=\"12\" font-family=\"monospace\" font-weight=\"bold\">CONSTRUCTION WORK IN PROGRESS</text><text x=\"80\" y=\"100\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Brick Laying &amp; Concrete Pouring</text><text x=\"80\" y=\"120\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Electrical Conduit Fitting</text></svg>",
+            "softwareDeliverables": ["Source Code Modules (.cpp, .py, .ts)", "Compiled Executables", "API Integration Endpoints"],
+            "skipWarning": "Skipping structured coding rules leads to security vulnerabilities, memory leaks, and unmaintainable code base.",
+            "softwareVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"40\" y=\"25\" width=\"320\" height=\"130\" fill=\"#090D16\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"60\" y=\"55\" fill=\"#0D9488\" font-size=\"11\" font-family=\"monospace\" font-weight=\"bold\">// Implementation: C++ / Python Source</text><text x=\"60\" y=\"80\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\">#include &lt;iostream&gt;</text><text x=\"60\" y=\"100\" fill=\"#F8FAFC\" font-size=\"10\" font-family=\"monospace\">int main() { std::cout &lt;&lt; \"Build Live!\"; }</text><text x=\"60\" y=\"130\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">COMPILE: 0 ERRORS • BUILD SUCCESSFUL ✓</text></svg>"
           },
           {
             "stageNumber": 5,
             "stageTitle": "Testing & Quality Assurance",
-            "teacherSpokenCue": "کوڈ لکھنے کے بعد بگز اور سیکیورٹی غلطیاں تلاش کرنے کے لیے ٹیسٹنگ کی جاتی ہے۔",
-            "realWorldAnalogyEn": "Testing water pressure in pipes for leaks, checking circuit breakers for short circuits, and inspecting window seals before painting.",
-            "realWorldAnalogyUr": "پلمبنگ، پائپ کی لیکیج اور الیکٹرک وائرنگ کے شارٹ سرکٹ کی چیکنگ۔",
-            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='45' cy='45' r='25' fill='none' stroke='currentColor' stroke-width='4'/><line x1='63' y1='63' x2='85' y2='85' stroke='currentColor' stroke-width='6'/></svg>",
-            "softwareDeliverables": [
-              "Test Cases & Execution Logs",
-              "Bug & Defect Tracking Sheet",
-              "User Acceptance Testing (UAT) Sign-off"
-            ],
-            "skipWarning": "Deploying untested software leads to system crashes, data loss, and user dissatisfaction.",
-            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M50 15 L85 30 V60 C85 75 50 90 50 90 C50 90 15 75 15 60 V30 Z' fill='none' stroke='currentColor' stroke-width='4'/><polyline points='35,50 45,60 65,40' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+            "teacherSpokenCue": "مکان میں شفٹ ہونے سے پہلے پانی کے پائپوں کا پریشر ٹیسٹ اور بجلی کے شارٹ سرکٹ چیک ہوتے ہیں۔ اسی طرح QA ٹیسٹرز سافٹ ویئر میں بگز تلاش کرتے ہیں۔",
+            "realWorldAnalogyEn": "Inspectors test plumbing water pressure, roof waterproofing, and circuit breakers before handed to the home buyer.",
+            "realWorldAnalogyUr": "پانی کی نالیوں کا پریشر ٹیسٹ، چھت کی ٹپکن اور بجلی کی کیبلز کا گہرا معائنہ۔",
+            "realWorldVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"60\" y=\"40\" width=\"280\" height=\"100\" fill=\"#0F172A\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"80\" y=\"75\" fill=\"#F59E0B\" font-size=\"12\" font-family=\"monospace\" font-weight=\"bold\">PHYSICAL QUALITY INSPECTION</text><text x=\"80\" y=\"100\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Water Pipe Pressure Test: PASSED</text><text x=\"80\" y=\"120\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Electrical Insulation Test: PASSED</text></svg>",
+            "softwareDeliverables": ["Test Cases Execution Report", "Bug Tracking Log", "User Acceptance Test (UAT) Sign-off"],
+            "skipWarning": "Skipping testing leads to catastrophic production crashes, data loss, and severe brand damage.",
+            "softwareVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"50\" y=\"25\" width=\"300\" height=\"130\" fill=\"#0F172A\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"70\" y=\"55\" fill=\"#0D9488\" font-size=\"11\" font-family=\"monospace\" font-weight=\"bold\">AUTOMATED QA TEST SUITE</text><text x=\"70\" y=\"80\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\">[PASS] Unit Test: Auth API (0.12s)</text><text x=\"70\" y=\"100\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\">[PASS] Integration Test: DB Write (0.45s)</text><text x=\"70\" y=\"130\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">TOTAL 142/142 TEST CASES PASSED ✓</text></svg>"
           },
           {
             "stageNumber": 6,
             "stageTitle": "Deployment & Maintenance",
-            "teacherSpokenCue": "سافٹ ویئر اب صارفین کے استعمال کے لیے انسٹال کر دیا جاتا ہے اور وقت کے ساتھ اپڈیٹ ہوتا ہے۔",
-            "realWorldAnalogyEn": "Handing over keys to the family to move in, followed by annual paint touch-ups and routine roof maintenance.",
-            "realWorldAnalogyUr": "گھر کی چابیاں مالکان کے حوالے کرنا اور وقت کے ساتھ مرمت و دیکھ بھال کرنا۔",
-            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='40' cy='40' r='15' fill='none' stroke='currentColor' stroke-width='4'/><line x1='50' y1='50' x2='80' y2='80' stroke='currentColor' stroke-width='4'/></svg>",
-            "softwareDeliverables": [
-              "Deployment Package / Production Build",
-              "User Operation Guide",
-              "Maintenance SLA & Patch Updates"
-            ],
-            "skipWarning": "Without maintenance, software becomes obsolete and vulnerable to new security threats.",
-            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 70 L50 20 L80 70 Z' fill='none' stroke='currentColor' stroke-width='4'/><circle cx='50' cy='70' r='10' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+            "teacherSpokenCue": "مکان کی چابیاں مالک کے حوالے کرنا (House Warming) اور وقت کے ساتھ سفیدی و پینٹ کی دیکھ بھال کرنا۔ نرم افزار میں پروڈکشن سرور پر ریلیز اور پیچز لگانا۔",
+            "realWorldAnalogyEn": "Handing keys over to the family during housewarming and scheduling annual paint maintenance and plumbing repairs.",
+            "realWorldAnalogyUr": "مالک کو گھر کی چابیاں سونپنا اور وقت کے ساتھ رنگ و روغن اور پائپوں کی مرمت کرنا۔",
+            "realWorldVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"60\" y=\"40\" width=\"280\" height=\"100\" fill=\"#0F172A\" stroke=\"#F59E0B\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"80\" y=\"75\" fill=\"#F59E0B\" font-size=\"12\" font-family=\"monospace\" font-weight=\"bold\">HOUSEWARMING &amp; KEY HANDOVER</text><text x=\"80\" y=\"100\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Building Occupancy Certificate</text><text x=\"80\" y=\"120\" fill=\"#94A3B8\" font-size=\"10\" font-family=\"monospace\">• Annual Maintenance Warranty</text></svg>",
+            "softwareDeliverables": ["Production Release Package", "Deployment Pipeline Log", "Maintenance & Patch Log"],
+            "skipWarning": "Skipping maintenance causes bit rot, security vulnerabilities against new exploits, and eventual system failure.",
+            "softwareVisualSvg": "<svg viewBox=\"0 0 400 180\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full h-full\"><rect width=\"400\" height=\"180\" fill=\"#0B1120\" rx=\"10\"/><rect x=\"50\" y=\"25\" width=\"300\" height=\"130\" fill=\"#0F172A\" stroke=\"#0D9488\" stroke-width=\"1.5\" rx=\"8\"/><text x=\"70\" y=\"55\" fill=\"#0D9488\" font-size=\"11\" font-family=\"monospace\" font-weight=\"bold\">PRODUCTION SERVER DEPLOYMENT</text><text x=\"70\" y=\"80\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\">[LIVE] AWS Cloud Instance Running</text><text x=\"70\" y=\"100\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\">[HEALTH] SSL Certificate Valid (365d)</text><text x=\"70\" y=\"130\" fill=\"#10B981\" font-size=\"10\" font-family=\"monospace\" font-weight=\"bold\">SYSTEM STATUS: 100% OPERATIONAL ✓</text></svg>"
           }
         ],
         "assessmentQuestions": [
           {
-            "id": "q-1.2-1",
+            "id": "mcq-sdlc-1",
             "questionType": "MCQ",
-            "statement": "Which phase of the Software Development Life Cycle (SDLC) produces the Software Requirement Specification (SRS) document?",
+            "statement": "Which document is created as the primary output deliverable of the System Design phase in SDLC?",
             "options": [
-              "A. Planning & Feasibility",
-              "B. Requirement Analysis",
-              "C. System Design",
-              "D. Implementation & Coding"
+              "A. Software Requirement Specification (SRS)",
+              "B. Design Document Specification (DDS)",
+              "C. Feasibility Study Report",
+              "D. User Acceptance Testing (UAT) Report"
             ],
             "correctOption": 1,
-            "rubricNotes": "Official Board Exam Answer: Requirement Analysis phase produces SRS. (BISE Lahore 2023 / Rawalpindi 2022)"
+            "rubricNotes": "Official Board Marking Scheme: Award 1 Mark for option B (DDS). Note: SRS belongs to Requirement Analysis, while DDS belongs to System Design. (BISE Lahore 2024 / Rawalpindi 2023)"
           },
           {
-            "id": "q-1.2-2",
+            "id": "mcq-sdlc-2",
             "questionType": "MCQ",
-            "statement": "What is the primary objective of conducting a Feasibility Study during the Planning phase of SDLC?",
+            "statement": "In which phase of SDLC are software engineers responsible for writing actual program code modules?",
             "options": [
-              "A. To write executable source code in C++",
-              "B. To determine whether the software project is financially, technically, and operationally viable",
-              "C. To detect runtime bugs and syntax errors",
-              "D. To design database tables and entity relationships"
+              "A. Planning Phase",
+              "B. Analysis Phase",
+              "C. Implementation Phase",
+              "D. Testing Phase"
             ],
-            "correctOption": 1,
-            "rubricNotes": "Official Board Exam Answer: Feasibility study determines project viability before committing budget. (BISE Gujranwala 2024)"
+            "correctOption": 2,
+            "rubricNotes": "Official Board Marking Scheme: Award 1 Mark for option C (Implementation / Coding Phase). Code creation happens in Phase 4. (BISE Gujranwala 2024 / Multan 2022)"
           }
         ]
       }
