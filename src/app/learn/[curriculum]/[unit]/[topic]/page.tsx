@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { DualLaneVisual } from "@/components/pedagogy/DualLaneVisual";
 import { OfficialTheoryTab } from "@/components/pedagogy/OfficialTheoryTab";
 import { TopperPaperSheet } from "@/components/pedagogy/TopperPaperSheet";
 import { CheckpointMCQ } from "@/components/pedagogy/CheckpointMCQ";
+import { TeacherCueBar } from "@/components/presenter/TeacherCueBar";
+import { ClassroomPollModal } from "@/components/presenter/ClassroomPollModal";
 import localUnitData from "@/data/punjab-11/unit-01.json";
 import {
   BookOpen,
@@ -14,9 +17,24 @@ import {
   FileText,
   PenTool,
   HelpCircle,
-  ChevronRight,
-  Sparkles,
+  Code2,
+  Presentation,
+  Loader2,
 } from "lucide-react";
+
+// Lazy-load PythonPlayground with WASM fallback loader
+const PythonPlayground = dynamic(
+  () => import("@/components/pedagogy/PythonPlayground"),
+  {
+    loading: () => (
+      <div className="p-8 rounded-2xl bg-surface border border-border flex items-center justify-center gap-3 text-sm text-muted">
+        <Loader2 className="w-5 h-5 animate-spin text-primary" />
+        <span>Initializing Python Pyodide WASM Runtime...</span>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 export default function TopicPage({
   params,
@@ -25,7 +43,11 @@ export default function TopicPage({
 }) {
   const topicData = localUnitData.unit.topics[0];
   const [activeStageIdx, setActiveStageIdx] = useState(0);
-  const [activeTab, setActiveTab] = useState<"visual" | "theory" | "topper" | "mcq">("visual");
+  const [activeTab, setActiveTab] = useState<
+    "visual" | "theory" | "topper" | "mcq" | "python"
+  >("visual");
+  const [isPollOpen, setIsPollOpen] = useState(false);
+  const [isProjectorMode, setIsProjectorMode] = useState(false);
 
   const currentStage = topicData.conceptStages[activeStageIdx];
 
@@ -38,23 +60,45 @@ export default function TopicPage({
     { num: 6, name: "Deploy", title: "Deployment" },
   ];
 
+  const handleNextStage = () => {
+    setActiveStageIdx((prev) => (prev + 1) % stagesNav.length);
+  };
+
   return (
-    <div className="max-w-5xl mx-auto space-y-6 pb-16 animate-in fade-in duration-300">
+    <div
+      className={`max-w-5xl mx-auto space-y-6 pb-24 animate-in fade-in duration-300 ${
+        isProjectorMode ? "text-lg scale-[1.02] transition-all" : ""
+      }`}
+    >
       {/* Top Hero Banner */}
       <div className="relative p-6 md:p-8 rounded-3xl bg-surface border border-border shadow-xl overflow-hidden space-y-5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
-        {/* Badges */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-medium border border-primary/20 flex items-center gap-1.5">
-            <BookOpen className="w-3.5 h-3.5" /> Unit 1 • Topic {topicData.topicCode}
-          </span>
-          <span className="px-3 py-1 rounded-full bg-analogy/10 text-analogy text-xs font-mono font-medium border border-analogy/20 flex items-center gap-1.5">
-            <Flame className="w-3.5 h-3.5 fill-analogy" /> {topicData.examFrequencyBadge}
-          </span>
-          <span className="px-3 py-1 rounded-full bg-canvas text-muted text-xs font-mono border border-border flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-tech" /> 25 Mins Study
-          </span>
+        {/* Badges & Mode Toggle Indicator */}
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-medium border border-primary/20 flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5" /> Unit 1 • Topic {topicData.topicCode}
+            </span>
+            <span className="px-3 py-1 rounded-full bg-analogy/10 text-analogy text-xs font-mono font-medium border border-analogy/20 flex items-center gap-1.5">
+              <Flame className="w-3.5 h-3.5 fill-analogy" /> {topicData.examFrequencyBadge}
+            </span>
+            <span className="px-3 py-1 rounded-full bg-canvas text-muted text-xs font-mono border border-border flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-tech" /> 25 Mins Study
+            </span>
+          </div>
+
+          <button
+            onClick={() => setIsProjectorMode(!isProjectorMode)}
+            className={`px-3 py-1 rounded-full text-xs font-mono font-bold border transition-all flex items-center gap-1.5 ${
+              isProjectorMode
+                ? "bg-analogy text-slate-950 border-analogy shadow-md"
+                : "bg-surface border-border text-muted hover:text-foreground"
+            }`}
+          >
+            <Presentation className="w-3.5 h-3.5" />
+            <span>{isProjectorMode ? "Projector Active" : "Projector View"}</span>
+          </button>
         </div>
 
         {/* Topic Title */}
@@ -104,6 +148,7 @@ export default function TopicPage({
           { id: "theory", label: "Official Textbook Theory", icon: FileText, color: "text-tech" },
           { id: "topper", label: "Topper Paper Formatting", icon: PenTool, color: "text-analogy" },
           { id: "mcq", label: "Exam Checkpoints", icon: HelpCircle, color: "text-primary" },
+          { id: "python", label: "Python WASM Lab", icon: Code2, color: "text-tech" },
         ].map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -149,7 +194,26 @@ export default function TopicPage({
         {activeTab === "mcq" && (
           <CheckpointMCQ questions={topicData.assessmentQuestions as any} />
         )}
+
+        {activeTab === "python" && <PythonPlayground />}
       </div>
+
+      {/* Teacher Cue Bar Presenter Floating Controls */}
+      {isProjectorMode && (
+        <TeacherCueBar
+          stageNumber={currentStage.stageNumber}
+          stageTitle={currentStage.stageTitle}
+          spokenCue={currentStage.teacherSpokenCue}
+          onTriggerPoll={() => setIsPollOpen(true)}
+          onNextStage={handleNextStage}
+        />
+      )}
+
+      {/* Interactive Classroom Poll Showdown Modal */}
+      <ClassroomPollModal
+        isOpen={isPollOpen}
+        onClose={() => setIsPollOpen(false)}
+      />
     </div>
   );
 }
