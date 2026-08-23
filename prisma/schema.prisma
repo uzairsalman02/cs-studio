@@ -1,0 +1,121 @@
+// Prisma schema file for CS Studio
+// Supported for PostgreSQL / MySQL / SQLite database engines
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Curriculum {
+  id           String   @id @default(cuid())
+  title        String
+  boardType    String   @default("SNC_PUNJAB")
+  isActive     Boolean  @default(true)
+  displayOrder Int      @default(1)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  units Unit[]
+}
+
+model Unit {
+  id                String     @id @default(cuid())
+  curriculumId      String
+  unitNumber        Int
+  title             String
+  pairingSchemeNote String?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  curriculum Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+  topics     Topic[]
+}
+
+model Topic {
+  id                 String   @id @default(cuid())
+  unitId             String
+  topicCode          String
+  title              String
+  slug               String   @unique
+  examFrequencyBadge String?
+  pastPapers         String[]
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  unit                Unit                 @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  conceptStages       TopicConceptStage[]
+  theoryNotes         TopicTheoryNote[]
+  assessmentQuestions AssessmentQuestion[]
+}
+
+model TopicConceptStage {
+  id                   String   @id @default(cuid())
+  topicId              String
+  stageNumber          Int
+  stageTitle           String
+  teacherSpokenCue     String
+  realWorldAnalogyEn   String
+  realWorldAnalogyUr   String
+  realWorldVisualSvg   String?
+  softwareDeliverables String[]
+  skipWarning          String?
+  softwareVisualSvg    String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+}
+
+model TopicTheoryNote {
+  id                   String   @id @default(cuid())
+  topicId              String
+  verbatimDefinition   String
+  technicalBreakdown   String
+  paperPresentationTip String?
+  boardMarks           Int      @default(5)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+}
+
+model AssessmentQuestion {
+  id            String   @id @default(cuid())
+  topicId       String
+  questionType  String   @default("MCQ")
+  statement     String
+  options       String[]
+  correctOption Int?
+  rubricNotes   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  topic Topic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id         String   @id @default(cuid())
+  email      String   @unique
+  name       String?
+  role       String   @default("STUDENT")
+  boardCity  String?
+  streakDays Int      @default(0)
+  isPro      Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AppGlobalSettings {
+  id                String   @id @default(cuid())
+  appName           String   @default("CS Studio 11")
+  appLogoCode       String   @default("CS")
+  curriculumTagline String   @default("Class 11 Computer Science • SNC Punjab")
+  activePaletteId   String   @default("editorial-indigo")
+  copyrightHolder   String   @default("Uzair Salman")
+  antiTamperEnabled Boolean  @default(true)
+  updatedAt         DateTime @updatedAt
+}

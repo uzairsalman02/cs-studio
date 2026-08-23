@@ -1,0 +1,145 @@
+{
+  "curriculum": "SNC Punjab Grade 11",
+  "unit": {
+    "unitNumber": 1,
+    "title": "Software Development",
+    "pairingSchemeNote": "Exam Weightage: 1 Long Question (5 Marks) + 2 Short Questions (4 Marks)",
+    "topics": [
+      {
+        "id": "topic-1.2",
+        "topicCode": "1.2",
+        "title": "Software Development Life Cycle (SDLC)",
+        "slug": "sdlc-phases-and-workflow",
+        "examFrequencyBadge": "High Priority • Asked in 8/10 Recent Board Exams",
+        "pastPapers": [
+          "BISE Lahore 2024 Group 1 (Q3)",
+          "BISE Rawalpindi 2023 Group 2 (Q5)",
+          "BISE Multan 2022 Group 1 (Q2)",
+          "BISE Gujranwala 2024 (MCQ 4)"
+        ],
+        "verbatimDefinition": "Software Development Life Cycle (SDLC) is a standard structured framework consisting of sequential phases used by software engineers to plan, analyze, design, code, test, deploy, and maintain quality software systems.",
+        "paperPresentationTip": "Draw a neat block flow diagram connecting all 6 phases with arrows in serial order. Label SRS under Analysis and DDS under Design for full 5 marks.",
+        "conceptStages": [
+          {
+            "stageNumber": 1,
+            "stageTitle": "Planning & Feasibility Study",
+            "teacherSpokenCue": "بچو! جیسے بغیر نقشے اور بجٹ کے گھر نہیں بنتا، اسی طرح بغیر پلاننگ کے کوئی سافٹ ویئر نہیں بن سکتا۔",
+            "realWorldAnalogyEn": "Conducting a land plot survey, checking local building bylaws, and estimating total financial budget before laying house foundations.",
+            "realWorldAnalogyUr": "گھر کی تعمیر شروع کرنے سے پہلے پلاٹ کا معائنہ، بجٹ کا تخمینہ اور منظوری حاصل کرنا۔",
+            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='30' width='60' height='50' fill='none' stroke='currentColor' stroke-width='4'/><path d='M10 35 L50 10 L90 35' fill='none' stroke='currentColor' stroke-width='4'/></svg>",
+            "softwareDeliverables": [
+              "Feasibility Study Report",
+              "Project Scope Charter",
+              "Cost-Benefit Analysis"
+            ],
+            "skipWarning": "Skipping feasibility planning leads to project abandonment due to budget overruns or technical impossibility.",
+            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='15' y='15' width='70' height='70' rx='8' fill='none' stroke='currentColor' stroke-width='4'/><line x1='30' y1='35' x2='70' y2='35' stroke='currentColor' stroke-width='4'/><line x1='30' y1='50' x2='60' y2='50' stroke='currentColor' stroke-width='4'/></svg>"
+          },
+          {
+            "stageNumber": 2,
+            "stageTitle": "Analysis & Requirement Engineering",
+            "teacherSpokenCue": "اس مرحلے میں ہم کلائنٹ کی تمام ضروریات اور مسائل کو تفصیل سے نوٹ کرتے ہیں۔",
+            "realWorldAnalogyEn": "An architect interviewing the client to detail room dimensions, kitchen layout, and electrical point preferences.",
+            "realWorldAnalogyUr": "معمار (آرکیٹیکٹ) کا کلائنٹ کے ساتھ تفصیلی انٹرویو تاکہ گھر کی تمام ضروریات کا پتا چل سکے۔",
+            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='50' cy='35' r='20' fill='none' stroke='currentColor' stroke-width='4'/><path d='M20 85 C20 60 80 60 80 85' fill='none' stroke='currentColor' stroke-width='4'/></svg>",
+            "softwareDeliverables": [
+              "Software Requirement Specification (SRS)",
+              "Use Case Scenarios",
+              "User Requirement Document"
+            ],
+            "skipWarning": "Incomplete requirements force expensive redesigns during coding.",
+            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M25 20 H75 V80 H25 Z' fill='none' stroke='currentColor' stroke-width='4'/><polyline points='35,45 45,55 65,35' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+          },
+          {
+            "stageNumber": 3,
+            "stageTitle": "System Design",
+            "teacherSpokenCue": "یہاں سافٹ ویئر کا تکنیکی ڈھانچہ، ڈیتابیس اور آرکیٹیکچر ڈیزائن کیا جاتا ہے۔",
+            "realWorldAnalogyEn": "Drawing detailed architectural floor blueprints, 3D elevation renders, and electrical wiring schematics.",
+            "realWorldAnalogyUr": "گھر کا باقاعدہ نقشہ، 3D ماڈل اور الیکٹرک پلمبنگ ڈایاگرام بنانا۔",
+            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='20' y='20' width='60' height='60' fill='none' stroke='currentColor' stroke-width='4'/><line x1='20' y1='50' x2='80' y2='50' stroke='currentColor' stroke-width='2'/></svg>",
+            "softwareDeliverables": [
+              "Design Document Specification (DDS)",
+              "Entity-Relationship Diagrams (ERD)",
+              "System Architecture & UI Wireframes"
+            ],
+            "skipWarning": "Poor architectural design creates performance bottlenecks and security vulnerabilities.",
+            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='20' width='30' height='25' fill='none' stroke='currentColor' stroke-width='4'/><rect x='60' y='20' width='30' height='25' fill='none' stroke='currentColor' stroke-width='4'/><rect x='35' y='65' width='30' height='25' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+          },
+          {
+            "stageNumber": 4,
+            "stageTitle": "Implementation / Coding",
+            "teacherSpokenCue": "ڈویلپرز اب پروگرامنگ زبانوں (مثلاً C++ یا Python) میں باقاعدہ کوڈ لکھتے ہیں۔",
+            "realWorldAnalogyEn": "Masons, carpenters, and electricians actively laying bricks, mixing cement, and constructing physical rooms according to the blueprint.",
+            "realWorldAnalogyUr": "مستری اور مزدوروں کا نقشے کے مطابق اینٹیں چننا اور گھر کی تعمیر مکمل کرنا۔",
+            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect x='15' y='20' width='70' height='15' fill='none' stroke='currentColor' stroke-width='3'/><rect x='15' y='40' width='70' height='15' fill='none' stroke='currentColor' stroke-width='3'/><rect x='15' y='60' width='70' height='15' fill='none' stroke='currentColor' stroke-width='3'/></svg>",
+            "softwareDeliverables": [
+              "Executable Source Code Modules",
+              "Code Repository & Commits",
+              "API & Module Documentation"
+            ],
+            "skipWarning": "Unorganized coding without design guidelines produces unmaintainable 'spaghetti code'.",
+            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><polyline points='30,30 15,50 30,70' fill='none' stroke='currentColor' stroke-width='4'/><polyline points='70,30 85,50 70,70' fill='none' stroke='currentColor' stroke-width='4'/><line x1='55' y1='25' x2='45' y2='75' stroke='currentColor' stroke-width='4'/></svg>"
+          },
+          {
+            "stageNumber": 5,
+            "stageTitle": "Testing & Quality Assurance",
+            "teacherSpokenCue": "کوڈ لکھنے کے بعد بگز اور سیکیورٹی غلطیاں تلاش کرنے کے لیے ٹیسٹنگ کی جاتی ہے۔",
+            "realWorldAnalogyEn": "Testing water pressure in pipes for leaks, checking circuit breakers for short circuits, and inspecting window seals before painting.",
+            "realWorldAnalogyUr": "پلمبنگ، پائپ کی لیکیج اور الیکٹرک وائرنگ کے شارٹ سرکٹ کی چیکنگ۔",
+            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='45' cy='45' r='25' fill='none' stroke='currentColor' stroke-width='4'/><line x1='63' y1='63' x2='85' y2='85' stroke='currentColor' stroke-width='6'/></svg>",
+            "softwareDeliverables": [
+              "Test Cases & Execution Logs",
+              "Bug & Defect Tracking Sheet",
+              "User Acceptance Testing (UAT) Sign-off"
+            ],
+            "skipWarning": "Deploying untested software leads to system crashes, data loss, and user dissatisfaction.",
+            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M50 15 L85 30 V60 C85 75 50 90 50 90 C50 90 15 75 15 60 V30 Z' fill='none' stroke='currentColor' stroke-width='4'/><polyline points='35,50 45,60 65,40' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+          },
+          {
+            "stageNumber": 6,
+            "stageTitle": "Deployment & Maintenance",
+            "teacherSpokenCue": "سافٹ ویئر اب صارفین کے استعمال کے لیے انسٹال کر دیا جاتا ہے اور وقت کے ساتھ اپڈیٹ ہوتا ہے۔",
+            "realWorldAnalogyEn": "Handing over keys to the family to move in, followed by annual paint touch-ups and routine roof maintenance.",
+            "realWorldAnalogyUr": "گھر کی چابیاں مالکان کے حوالے کرنا اور وقت کے ساتھ مرمت و دیکھ بھال کرنا۔",
+            "realWorldVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><circle cx='40' cy='40' r='15' fill='none' stroke='currentColor' stroke-width='4'/><line x1='50' y1='50' x2='80' y2='80' stroke='currentColor' stroke-width='4'/></svg>",
+            "softwareDeliverables": [
+              "Deployment Package / Production Build",
+              "User Operation Guide",
+              "Maintenance SLA & Patch Updates"
+            ],
+            "skipWarning": "Without maintenance, software becomes obsolete and vulnerable to new security threats.",
+            "softwareVisualSvg": "<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><path d='M20 70 L50 20 L80 70 Z' fill='none' stroke='currentColor' stroke-width='4'/><circle cx='50' cy='70' r='10' fill='none' stroke='currentColor' stroke-width='4'/></svg>"
+          }
+        ],
+        "assessmentQuestions": [
+          {
+            "id": "q-1.2-1",
+            "questionType": "MCQ",
+            "statement": "Which phase of the Software Development Life Cycle (SDLC) produces the Software Requirement Specification (SRS) document?",
+            "options": [
+              "A. Planning & Feasibility",
+              "B. Requirement Analysis",
+              "C. System Design",
+              "D. Implementation & Coding"
+            ],
+            "correctOption": 1,
+            "rubricNotes": "Official Board Exam Answer: Requirement Analysis phase produces SRS. (BISE Lahore 2023 / Rawalpindi 2022)"
+          },
+          {
+            "id": "q-1.2-2",
+            "questionType": "MCQ",
+            "statement": "What is the primary objective of conducting a Feasibility Study during the Planning phase of SDLC?",
+            "options": [
+              "A. To write executable source code in C++",
+              "B. To determine whether the software project is financially, technically, and operationally viable",
+              "C. To detect runtime bugs and syntax errors",
+              "D. To design database tables and entity relationships"
+            ],
+            "correctOption": 1,
+            "rubricNotes": "Official Board Exam Answer: Feasibility study determines project viability before committing budget. (BISE Gujranwala 2024)"
+          }
+        ]
+      }
+    ]
+  }
+}
