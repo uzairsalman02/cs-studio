@@ -18,22 +18,13 @@
 - [x] Build complete dataset for Unit 1 Topic 1.2 ([src/data/punjab-11/unit-01.json](file:///Users/uzair/Dev/cs-studio/src/data/punjab-11/unit-01.json))
 - [x] Configure Supabase PostgreSQL connection & push tables (`npx prisma db push`)
 - [x] Execute seed script ([prisma/seed.ts](file:///Users/uzair/Dev/cs-studio/prisma/seed.ts)) to populate Supabase DB
-- [x] Implement `SvgRenderer` component ([src/components/pedagogy/SvgRenderer.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/SvgRenderer.tsx))
-- [x] Implement `DualLaneVisual` component ([src/components/pedagogy/DualLaneVisual.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/DualLaneVisual.tsx))
-- [x] Implement `OfficialTheoryTab` component ([src/components/pedagogy/OfficialTheoryTab.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/OfficialTheoryTab.tsx))
-- [x] Implement `TopperPaperSheet` component ([src/components/pedagogy/TopperPaperSheet.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/TopperPaperSheet.tsx))
-- [x] Implement `CheckpointMCQ` component ([src/components/pedagogy/CheckpointMCQ.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/CheckpointMCQ.tsx))
-- [x] Implement `TeacherCueBar` component ([src/components/presenter/TeacherCueBar.tsx](file:///Users/uzair/Dev/cs-studio/src/components/presenter/TeacherCueBar.tsx))
-- [x] Implement `ClassroomPollModal` component ([src/components/presenter/ClassroomPollModal.tsx](file:///Users/uzair/Dev/cs-studio/src/components/presenter/ClassroomPollModal.tsx))
-- [x] Implement lazy-loaded `PythonPlayground` Pyodide WASM runner ([src/components/pedagogy/PythonPlayground.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/PythonPlayground.tsx))
-- [x] Connect Projector Stage mode toggle in Header & Page layout
-- [x] Configure root route redirect ([src/app/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/page.tsx))
-- [x] Fix Tailwind CSS configuration & PostCSS plugins ([tailwind.config.ts](file:///Users/uzair/Dev/cs-studio/tailwind.config.ts))
 - [x] Build Admin Studio page ([src/app/admin/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/admin/page.tsx))
-- [x] Perform automated audit and remove dark theme overrides in RootLayout ([src/app/layout.tsx](file:///Users/uzair/Dev/cs-studio/src/app/layout.tsx))
+- [x] Purge legacy component remnants & delete `.next` cache
+- [x] Build core 5-Layer Studio Component ([src/components/studio/TopicStudio.tsx](file:///Users/uzair/Dev/cs-studio/src/components/studio/TopicStudio.tsx))
+- [x] Mount `TopicStudio` in `src/app/page.tsx` and `src/app/learn/[curriculum]/[unit]/[topic]/page.tsx`
 - [x] Verify build (`npm run build`) with 0 compile/lint errors
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Automated audit completed, RootLayout background overrides removed, clean prototype force-mounted, verified via build, and pushed to GitHub (`origin/main`).
+- **Current Step**: Clean UI rebuild completed with finalized 5-Layer Topic Studio architecture, verified via build, and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
