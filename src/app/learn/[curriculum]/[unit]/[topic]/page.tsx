@@ -27,8 +27,8 @@ const PythonPlayground = dynamic(
   () => import("@/components/pedagogy/PythonPlayground"),
   {
     loading: () => (
-      <div className="p-8 rounded-2xl bg-surface border border-border flex items-center justify-center gap-3 text-sm text-muted">
-        <Loader2 className="w-5 h-5 animate-spin text-primary" />
+      <div className="p-8 rounded-2xl bg-white dark:bg-[#161b26] border border-slate-200 dark:border-slate-800 flex items-center justify-center gap-3 text-sm text-slate-500">
+        <Loader2 className="w-5 h-5 animate-spin text-indigo-500" />
         <span>Initializing Python Pyodide WASM Runtime...</span>
       </div>
     ),
@@ -67,24 +67,24 @@ export default function TopicPage({
   return (
     <div
       className={`max-w-5xl mx-auto space-y-6 pb-24 animate-in fade-in duration-300 ${
-        isProjectorMode ? "text-lg scale-[1.02] transition-all" : ""
+        isProjectorMode ? "text-lg scale-[1.01] transition-all" : ""
       }`}
     >
       {/* Top Hero Banner */}
-      <div className="relative p-6 md:p-8 rounded-3xl bg-surface border border-border shadow-xl overflow-hidden space-y-5">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+      <div className="relative p-6 md:p-8 rounded-3xl bg-white dark:bg-[#161b26] border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden space-y-5">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
         {/* Badges & Mode Toggle Indicator */}
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-medium border border-primary/20 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-semibold border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5" /> Unit 1 • Topic {topicData.topicCode}
             </span>
-            <span className="px-3 py-1 rounded-full bg-analogy/10 text-analogy text-xs font-mono font-medium border border-analogy/20 flex items-center gap-1.5">
-              <Flame className="w-3.5 h-3.5 fill-analogy" /> {topicData.examFrequencyBadge}
+            <span className="px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 text-xs font-mono font-semibold border border-amber-200 dark:border-amber-800/40 flex items-center gap-1.5">
+              <Flame className="w-3.5 h-3.5 fill-amber-500" /> {topicData.examFrequencyBadge}
             </span>
-            <span className="px-3 py-1 rounded-full bg-canvas text-muted text-xs font-mono border border-border flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-tech" /> 25 Mins Study
+            <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#0f131a] text-slate-600 dark:text-slate-400 text-xs font-mono border border-slate-200 dark:border-slate-800 flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-teal-500" /> 25 Mins Study
             </span>
           </div>
 
@@ -92,8 +92,8 @@ export default function TopicPage({
             onClick={() => setIsProjectorMode(!isProjectorMode)}
             className={`px-3 py-1 rounded-full text-xs font-mono font-bold border transition-all flex items-center gap-1.5 ${
               isProjectorMode
-                ? "bg-analogy text-slate-950 border-analogy shadow-md"
-                : "bg-surface border-border text-muted hover:text-foreground"
+                ? "bg-amber-500 text-slate-950 border-amber-500 shadow-sm"
+                : "bg-slate-100 dark:bg-[#0f131a] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
             <Presentation className="w-3.5 h-3.5" />
@@ -103,52 +103,55 @@ export default function TopicPage({
 
         {/* Topic Title */}
         <div className="space-y-2">
-          <h1 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
             {topicData.title}
           </h1>
-          <p className="text-xs md:text-sm text-muted leading-relaxed max-w-3xl">
+          <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
             {topicData.verbatimDefinition}
           </p>
         </div>
 
         {/* 6-Stage Interactive Stepper */}
-        <div className="pt-2 border-t border-border/60">
-          <span className="text-[10px] font-mono text-muted uppercase tracking-wider block mb-2">
+        <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+          <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-2 font-bold">
             SDLC 6-Stage Interactive Stepper
           </span>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
-            {stagesNav.map((s, idx) => (
-              <button
-                key={s.num}
-                onClick={() => setActiveStageIdx(idx)}
-                className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
-                  activeStageIdx === idx
-                    ? "bg-primary text-white border-primary shadow-md"
-                    : "bg-canvas border-border text-foreground hover:bg-surface-hover"
-                }`}
-              >
-                <span
-                  className={`text-[10px] font-mono font-bold ${
-                    activeStageIdx === idx ? "text-white/80" : "text-primary"
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
+            {stagesNav.map((s, idx) => {
+              const isSelected = activeStageIdx === idx;
+              return (
+                <button
+                  key={s.num}
+                  onClick={() => setActiveStageIdx(idx)}
+                  className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                    isSelected
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-sm font-bold"
+                      : "bg-white dark:bg-[#131722] border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700"
                   }`}
                 >
-                  Phase 0{s.num}
-                </span>
-                <span className="text-xs font-semibold leading-snug truncate">{s.name}</span>
-              </button>
-            ))}
+                  <span
+                    className={`text-[10px] font-mono font-bold ${
+                      isSelected ? "text-indigo-300 dark:text-indigo-600" : "text-indigo-600 dark:text-indigo-400"
+                    }`}
+                  >
+                    Phase 0{s.num}
+                  </span>
+                  <span className="text-xs font-semibold leading-snug truncate">{s.name}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
 
       {/* Primary Pedagogy Navigation Tabs */}
-      <div className="flex items-center gap-2 bg-surface p-1.5 rounded-2xl border border-border overflow-x-auto">
+      <div className="flex items-center gap-2 bg-white dark:bg-[#161b26] p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-x-auto shadow-xs">
         {[
-          { id: "visual", label: "Dual-Lane Visual Comparison", icon: Layers, color: "text-primary" },
-          { id: "theory", label: "Official Textbook Theory", icon: FileText, color: "text-tech" },
-          { id: "topper", label: "Topper Paper Formatting", icon: PenTool, color: "text-analogy" },
-          { id: "mcq", label: "Exam Checkpoints", icon: HelpCircle, color: "text-primary" },
-          { id: "python", label: "Python WASM Lab", icon: Code2, color: "text-tech" },
+          { id: "visual", label: "Dual-Lane Visual Comparison", icon: Layers, color: "text-indigo-500" },
+          { id: "theory", label: "Official Textbook Theory", icon: FileText, color: "text-teal-500" },
+          { id: "topper", label: "Topper Paper Formatting", icon: PenTool, color: "text-amber-500" },
+          { id: "mcq", label: "Exam Checkpoints", icon: HelpCircle, color: "text-indigo-500" },
+          { id: "python", label: "Python WASM Lab", icon: Code2, color: "text-teal-500" },
         ].map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -158,8 +161,8 @@ export default function TopicPage({
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 isActive
-                  ? "bg-canvas text-foreground shadow-sm border border-border"
-                  : "text-muted hover:text-foreground hover:bg-surface-hover/50"
+                  ? "bg-slate-100 dark:bg-[#0f131a] text-slate-900 dark:text-slate-100 shadow-xs border border-slate-200 dark:border-slate-800"
+                  : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
               <Icon className={`w-4 h-4 ${isActive ? tab.color : ""}`} />
