@@ -30,10 +30,11 @@
 - [x] Configure root route redirect ([src/app/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/page.tsx))
 - [x] Fix Tailwind CSS configuration & PostCSS plugins ([tailwind.config.ts](file:///Users/uzair/Dev/cs-studio/tailwind.config.ts))
 - [x] Build Admin Studio page ([src/app/admin/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/admin/page.tsx))
-- [x] Hard overwrite primary learning page ([src/app/learn/[curriculum]/[unit]/[topic]/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/learn/%5Bcurriculum%5D/%5Bunit%5D/%5Btopic%5D/page.tsx)) with standalone React client component containing exact prototype markup, state, and inline SVGs
+- [x] Hard overwrite primary learning page ([src/app/learn/[curriculum]/[unit]/[topic]/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/learn/%5Bcurriculum%5D/%5Bunit%5D/%5Btopic%5D/page.tsx))
+- [x] Overwrite `src/app/globals.css` with clean minimal CSS and update `layout.tsx` to force exact prototype rendering
 - [x] Verify build (`npm run build`) with 0 compile/lint errors
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Primary learning page hard-overwritten with standalone prototype React client component, verified via build, and pushed to GitHub (`origin/main`).
+- **Current Step**: Clean minimal CSS installed, layout background overrides reset, verified via build, and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
