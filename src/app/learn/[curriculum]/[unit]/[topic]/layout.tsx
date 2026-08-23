@@ -13,11 +13,7 @@ export default function LearningLayout({
   const [activeMode, setActiveMode] = useState<"student" | "projector">("student");
 
   return (
-    <div
-      className={`h-screen w-screen overflow-hidden flex flex-col justify-between bg-canvas text-foreground ${
-        activeMode === "projector" ? "projector-stage-active" : ""
-      }`}
-    >
+    <div className="h-screen w-screen overflow-hidden flex flex-col justify-between bg-slate-50 dark:bg-[#0f131a] text-slate-900 dark:text-slate-100 font-sans">
       {/* Fixed Top Header */}
       <Header
         activeMode={activeMode}
@@ -30,7 +26,7 @@ export default function LearningLayout({
         <FixedSidebar />
 
         {/* Main Interactive Workspace */}
-        <main className="flex-1 h-full overflow-y-auto p-6 md:p-8 bg-canvas">
+        <main className="flex-1 h-full overflow-y-auto p-6 md:p-8 bg-slate-50 dark:bg-[#0f131a]">
           {children}
         </main>
       </div>
