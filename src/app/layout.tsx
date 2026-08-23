@@ -23,8 +23,8 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CS Studio • Interactive Pedagogy & Presenter",
-  description: "Digital computer science education and presentation platform.",
+  title: "CS Studio 11 • Single National Curriculum (PECTAA 2023)",
+  description: "Computer Science Class 11 interactive learning studio and classroom presenter for Punjab Boards.",
 };
 
 export default function RootLayout({
@@ -36,9 +36,8 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} ${notoNastaliqUrdu.variable} ${jetBrainsMono.variable}`}
-      data-theme="editorial-indigo"
     >
-      <body className="h-screen w-screen overflow-hidden flex flex-col justify-between no-select bg-canvas text-foreground font-sans">
+      <body className="h-screen w-screen overflow-hidden flex flex-col justify-between bg-slate-100 text-slate-800 dark:bg-[#0f131a] dark:text-slate-200 font-sans">
         {children}
         <AntiTamperGuard />
       </body>
