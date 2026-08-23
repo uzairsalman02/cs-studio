@@ -8,23 +8,15 @@
 - [x] Configure Google Fonts (`Plus Jakarta Sans`, `Noto Nastaliq Urdu`, `JetBrains Mono`)
 - [x] Implement 4-palette CSS engine (`editorial-indigo`, `obsidian-projector`, `emerald-focus`, `copper-warmth`)
 - [x] Configure locked viewport layout & `.no-select` content protection
-- [x] Implement `AntiTamperGuard` component
-- [x] Build Fixed Top Header (`Header.tsx`) with mode toggle, palette dropdown, and streak badge
-- [x] Build Pinned Left Sidebar (`FixedSidebar.tsx`) with Unit 1 exam pairing banner and topic scrolling list
-- [x] Build Branded Bottom Footer (`Footer.tsx`) with PCTB attribution
-- [x] Wire persistent Learning Layout (`src/app/learn/[curriculum]/[unit]/[topic]/layout.tsx`)
-- [x] Setup Prisma ORM schema ([prisma/schema.prisma](file:///Users/uzair/Dev/cs-studio/prisma/schema.prisma))
-- [x] Create Prisma Client utility singleton ([src/lib/prisma.ts](file:///Users/uzair/Dev/cs-studio/src/lib/prisma.ts))
-- [x] Build complete dataset for Unit 1 Topic 1.2 ([src/data/punjab-11/unit-01.json](file:///Users/uzair/Dev/cs-studio/src/data/punjab-11/unit-01.json))
-- [x] Configure Supabase PostgreSQL connection & push tables (`npx prisma db push`)
-- [x] Execute seed script ([prisma/seed.ts](file:///Users/uzair/Dev/cs-studio/prisma/seed.ts)) to populate Supabase DB
+- [x] Implement `AntiTamperGuard` component ([src/components/security/AntiTamperGuard.tsx](file:///Users/uzair/Dev/cs-studio/src/components/security/AntiTamperGuard.tsx))
 - [x] Build Admin Studio page ([src/app/admin/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/admin/page.tsx))
-- [x] Purge legacy component remnants & delete `.next` cache
-- [x] Build core 5-Layer Studio Component ([src/components/studio/TopicStudio.tsx](file:///Users/uzair/Dev/cs-studio/src/components/studio/TopicStudio.tsx))
-- [x] Mount `TopicStudio` in `src/app/page.tsx` and `src/app/learn/[curriculum]/[unit]/[topic]/page.tsx`
+- [x] Update curriculum schema ([src/types/curriculum.ts](file:///Users/uzair/Dev/cs-studio/src/types/curriculum.ts)) with Topic, Unit, SDLCStage dual-lane SVGs, TopperSheetItem, and MCQ subConceptTag
+- [x] Create Unit 1 curriculum dataset ([src/data/curriculum/unit-01.ts](file:///Users/uzair/Dev/cs-studio/src/data/curriculum/unit-01.ts)) covering Topics 1.1 and 1.2
+- [x] Replace Student Dashboard ([src/app/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/page.tsx)) with finalized Light Mode dashboard (TopBar, 4-Metric Grid, Unit Cards)
+- [x] Replace Topic Studio ([src/components/studio/TopicStudio.tsx](file:///Users/uzair/Dev/cs-studio/src/components/studio/TopicStudio.tsx)) with finalized 5-Layer compact layout (Fixed Syllabus Sidebar, 5-Step Stepper, Symmetrical Dual-Lane SVGs, Topper Sheet, Practice Test)
 - [x] Verify build (`npm run build`) with 0 compile/lint errors
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Clean UI rebuild completed with finalized 5-Layer Topic Studio architecture, verified via build, and pushed to GitHub (`origin/main`).
+- **Current Step**: Refactoring and update to finalized design blueprints completed, verified via `npm run build`, and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
