@@ -20,9 +20,11 @@ import {
   Code2,
   Presentation,
   Loader2,
+  Mic,
+  Award,
+  Sparkles,
 } from "lucide-react";
 
-// Lazy-load PythonPlayground with WASM fallback loader
 const PythonPlayground = dynamic(
   () => import("@/components/pedagogy/PythonPlayground"),
   {
@@ -52,12 +54,12 @@ export default function TopicPage({
   const currentStage = topicData.conceptStages[activeStageIdx];
 
   const stagesNav = [
-    { num: 1, name: "Planning", title: "Planning & Feasibility" },
-    { num: 2, name: "Analysis", title: "Requirement Analysis" },
-    { num: 3, name: "Design", title: "System Design" },
-    { num: 4, name: "Coding", title: "Implementation" },
-    { num: 5, name: "Testing", title: "Testing & QA" },
-    { num: 6, name: "Deploy", title: "Deployment" },
+    { num: 1, name: "Requirements", title: "Requirement Analysis" },
+    { num: 2, name: "Design", title: "System Design (DDS)" },
+    { num: 3, name: "Coding", title: "Implementation" },
+    { num: 4, name: "Testing", title: "Testing & QA" },
+    { num: 5, name: "Deploy", title: "Deployment" },
+    { num: 6, name: "Maintain", title: "Maintenance" },
   ];
 
   const handleNextStage = () => {
@@ -70,17 +72,38 @@ export default function TopicPage({
         isProjectorMode ? "text-lg scale-[1.01] transition-all" : ""
       }`}
     >
-      {/* Top Hero Banner */}
-      <div className="relative p-6 md:p-8 rounded-3xl bg-white dark:bg-[#161b26] border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden space-y-5">
+      {/* Teacher Spoken Hook Alert (Active when Classroom Mode is toggled or visible) */}
+      {isProjectorMode && (
+        <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-amber-900 dark:text-amber-200 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+          <div className="flex items-center gap-2.5">
+            <Mic className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
+            <div className="space-y-0.5">
+              <span className="text-[10px] font-mono uppercase font-bold text-amber-700 dark:text-amber-400 block">
+                Classroom Stage Hook (استاد کی آواز)
+              </span>
+              <p className="urdu-script text-base text-amber-950 dark:text-amber-100 font-semibold leading-relaxed">
+                {currentStage.teacherSpokenCue}
+              </p>
+            </div>
+          </div>
+
+          <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-mono font-bold border border-amber-500/40 shrink-0 flex items-center gap-1">
+            <Award className="w-3.5 h-3.5" /> 5 Marks Board Long Q
+          </span>
+        </div>
+      )}
+
+      {/* Main Topic Header Card */}
+      <div className="relative p-6 md:p-8 rounded-3xl bg-white dark:bg-[#161b26] border border-slate-200 dark:border-slate-800 shadow-xs overflow-hidden space-y-5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
-        {/* Badges & Mode Toggle Indicator */}
+        {/* Badges & Presentation Toggle */}
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-semibold border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5" /> Unit 1 • Topic {topicData.topicCode}
+            <span className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-bold border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5" /> Topic {topicData.topicCode}
             </span>
-            <span className="px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 text-xs font-mono font-semibold border border-amber-200 dark:border-amber-800/40 flex items-center gap-1.5">
+            <span className="px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 text-xs font-mono font-bold border border-amber-200 dark:border-amber-800/40 flex items-center gap-1.5">
               <Flame className="w-3.5 h-3.5 fill-amber-500" /> {topicData.examFrequencyBadge}
             </span>
             <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#0f131a] text-slate-600 dark:text-slate-400 text-xs font-mono border border-slate-200 dark:border-slate-800 flex items-center gap-1.5">
@@ -90,14 +113,14 @@ export default function TopicPage({
 
           <button
             onClick={() => setIsProjectorMode(!isProjectorMode)}
-            className={`px-3 py-1 rounded-full text-xs font-mono font-bold border transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded-full text-xs font-mono font-bold border transition-all flex items-center gap-1.5 ${
               isProjectorMode
-                ? "bg-amber-500 text-slate-950 border-amber-500 shadow-sm"
+                ? "bg-amber-500 text-slate-950 border-amber-500 shadow-xs"
                 : "bg-slate-100 dark:bg-[#0f131a] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
             <Presentation className="w-3.5 h-3.5" />
-            <span>{isProjectorMode ? "Projector Active" : "Projector View"}</span>
+            <span>{isProjectorMode ? "Classroom Mode Active" : "Classroom Stage"}</span>
           </button>
         </div>
 
@@ -111,22 +134,35 @@ export default function TopicPage({
           </p>
         </div>
 
-        {/* 6-Stage Interactive Stepper */}
+        {/* Past Paper Frequency Indicator */}
+        <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <span className="font-bold text-slate-700 dark:text-slate-300">Past Paper Frequency:</span>
+          {topicData.pastPapers.map((paper, idx) => (
+            <span
+              key={idx}
+              className="px-2 py-0.5 rounded bg-slate-100 dark:bg-[#0f131a] border border-slate-200 dark:border-slate-800"
+            >
+              {paper}
+            </span>
+          ))}
+        </div>
+
+        {/* 6-Stage Stepper Grid */}
         <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
           <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-2 font-bold">
-            SDLC 6-Stage Interactive Stepper
+            SDLC 6-Stage Workflow Stepper
           </span>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
             {stagesNav.map((s, idx) => {
               const isSelected = activeStageIdx === idx;
               return (
                 <button
                   key={s.num}
                   onClick={() => setActiveStageIdx(idx)}
-                  className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                  className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
                     isSelected
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-sm font-bold"
-                      : "bg-white dark:bg-[#131722] border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700"
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs font-bold"
+                      : "bg-white dark:bg-[#131722] border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700"
                   }`}
                 >
                   <span
@@ -134,7 +170,7 @@ export default function TopicPage({
                       isSelected ? "text-indigo-300 dark:text-indigo-600" : "text-indigo-600 dark:text-indigo-400"
                     }`}
                   >
-                    Phase 0{s.num}
+                    Stage 0{s.num}
                   </span>
                   <span className="text-xs font-semibold leading-snug truncate">{s.name}</span>
                 </button>
@@ -144,7 +180,7 @@ export default function TopicPage({
         </div>
       </div>
 
-      {/* Primary Pedagogy Navigation Tabs */}
+      {/* Primary Navigation Tabs */}
       <div className="flex items-center gap-2 bg-white dark:bg-[#161b26] p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-x-auto shadow-xs">
         {[
           { id: "visual", label: "Dual-Lane Visual Comparison", icon: Layers, color: "text-indigo-500" },
@@ -161,7 +197,7 @@ export default function TopicPage({
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 isActive
-                  ? "bg-slate-100 dark:bg-[#0f131a] text-slate-900 dark:text-slate-100 shadow-xs border border-slate-200 dark:border-slate-800"
+                  ? "bg-slate-100 dark:bg-[#0f131a] text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800"
                   : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
               }`}
             >
@@ -181,7 +217,7 @@ export default function TopicPage({
             theoryNote={{
               verbatimDefinition: topicData.verbatimDefinition,
               technicalBreakdown:
-                "SDLC encompasses 6 core phases: Planning & Feasibility, Requirement Analysis (SRS), System Design (DDS/UML), Implementation (Coding), Testing & QA, and Deployment & Maintenance.",
+                "SDLC encompasses 6 core phases: Requirement Analysis (SRS), System Design (DDS/UML), Implementation (Coding), Testing & QA, Deployment, and Maintenance.",
               paperPresentationTip: topicData.paperPresentationTip,
               boardMarks: 5,
               pastPapers: topicData.pastPapers,
@@ -201,7 +237,7 @@ export default function TopicPage({
         {activeTab === "python" && <PythonPlayground />}
       </div>
 
-      {/* Teacher Cue Bar Presenter Floating Controls */}
+      {/* Teacher Cue Bar Floating Controls */}
       {isProjectorMode && (
         <TeacherCueBar
           stageNumber={currentStage.stageNumber}
@@ -212,7 +248,7 @@ export default function TopicPage({
         />
       )}
 
-      {/* Interactive Classroom Poll Showdown Modal */}
+      {/* Classroom Poll Modal */}
       <ClassroomPollModal
         isOpen={isPollOpen}
         onClose={() => setIsPollOpen(false)}

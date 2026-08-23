@@ -14,7 +14,6 @@ export function Header({ onModeChange, activeMode = "student" }: HeaderProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check initial dark mode status
     const hasDarkClass = document.documentElement.classList.contains("dark");
     setIsDarkMode(hasDarkClass);
   }, []);
@@ -39,61 +38,59 @@ export function Header({ onModeChange, activeMode = "student" }: HeaderProps) {
   };
 
   return (
-    <header className="h-16 w-full bg-white/90 dark:bg-[#161b26]/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 flex items-center justify-between z-40 shrink-0">
-      {/* Left Side: Brand Logo & SNC Punjab Badge */}
+    <header className="h-16 w-full bg-white dark:bg-[#161b26] border-b border-slate-200 dark:border-slate-800/90 px-4 md:px-6 flex items-center justify-between z-40 shrink-0 shadow-xs">
+      {/* Left Side: Brand Logo & PECTAA Subtitle */}
       <div className="flex items-center gap-3">
         <Link href="/learn/punjab-11/unit-01/topic-1-2" className="flex items-center gap-3 group">
-          <div className="bg-gradient-to-br from-indigo-500 via-amber-500 to-teal-500 p-[1.5px] rounded-xl shadow-sm group-hover:scale-105 transition-transform">
-            <div className="bg-slate-900 px-2.5 py-1 rounded-[10.5px] flex items-center justify-center font-mono font-bold text-sm text-indigo-400 tracking-wider">
-              CS
-            </div>
+          <div className="w-10 h-10 bg-gradient-to-tr from-indigo-600 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold font-mono shadow-md text-sm group-hover:scale-105 transition-transform">
+            CS
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
               <span className="font-bold text-base text-slate-900 dark:text-slate-100 tracking-tight">
                 CS Studio 11
               </span>
-              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/40">
-                <Sparkles className="w-2.5 h-2.5" /> SNC Punjab
+              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/50">
+                PECTAA 2023
               </span>
             </div>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono hidden md:inline-block">
-              Class 11 Computer Science • Board Syllabus
+            <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden md:inline-block">
+              Punjab Boards • Grade 11 (1st Year)
             </span>
           </div>
         </Link>
       </div>
 
-      {/* Right Side: Mode Switcher, Dark/Light Toggle, Admin Link, Streak Pill */}
-      <div className="flex items-center gap-2.5 sm:gap-3.5">
-        {/* Mode Toggle Switcher */}
-        <div className="flex items-center bg-slate-100 dark:bg-[#0f131a] p-1 rounded-xl border border-slate-200 dark:border-slate-800">
-          <button
-            onClick={() => handleModeToggle("student")}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-              mode === "student"
-                ? "bg-white dark:bg-[#161b26] text-slate-900 dark:text-slate-100 shadow-sm border border-slate-200 dark:border-slate-700"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
-            }`}
-          >
-            <GraduationCap className={`w-3.5 h-3.5 ${mode === "student" ? "text-indigo-500" : ""}`} />
-            <span className="hidden sm:inline">Student Mode</span>
-          </button>
+      {/* Center: Mode Switcher */}
+      <div className="flex items-center bg-slate-100 dark:bg-[#0f131a] p-1 rounded-xl border border-slate-200 dark:border-slate-800">
+        <button
+          onClick={() => handleModeToggle("student")}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            mode === "student"
+              ? "bg-white dark:bg-[#161b26] text-slate-900 dark:text-slate-100 shadow-sm border border-slate-200 dark:border-slate-700"
+              : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+          }`}
+        >
+          <GraduationCap className={`w-3.5 h-3.5 ${mode === "student" ? "text-indigo-500" : ""}`} />
+          <span className="hidden sm:inline">Student Mode</span>
+        </button>
 
-          <button
-            onClick={() => handleModeToggle("projector")}
-            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-              mode === "projector"
-                ? "bg-white dark:bg-[#161b26] text-slate-900 dark:text-slate-100 shadow-sm border border-slate-200 dark:border-slate-700"
-                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
-            }`}
-          >
-            <Presentation className={`w-3.5 h-3.5 ${mode === "projector" ? "text-amber-500" : ""}`} />
-            <span className="hidden sm:inline">Projector Stage</span>
-          </button>
-        </div>
+        <button
+          onClick={() => handleModeToggle("projector")}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            mode === "projector"
+              ? "bg-white dark:bg-[#161b26] text-slate-900 dark:text-slate-100 shadow-sm border border-slate-200 dark:border-slate-700"
+              : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+          }`}
+        >
+          <Presentation className={`w-3.5 h-3.5 ${mode === "projector" ? "text-amber-500" : ""}`} />
+          <span className="hidden sm:inline">Classroom Stage</span>
+        </button>
+      </div>
 
-        {/* Light / Dark Mode Toggle Button */}
+      {/* Right Side: Theme Toggle, User Profile & Admin Gear */}
+      <div className="flex items-center gap-2.5">
+        {/* Light / Dark Toggle */}
         <button
           onClick={handleThemeToggle}
           className="p-2 rounded-xl bg-slate-100 dark:bg-[#0f131a] border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center"
@@ -106,11 +103,25 @@ export function Header({ onModeChange, activeMode = "student" }: HeaderProps) {
           )}
         </button>
 
-        {/* User Streak Pill */}
-        <div className="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 text-amber-600 dark:text-amber-400 text-xs font-bold font-mono">
-            <Flame className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-            <span>4 Days</span>
+        {/* User Profile Pill */}
+        <div className="flex items-center gap-2.5 pl-2 border-l border-slate-200 dark:border-slate-800">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-100 dark:bg-[#0f131a] border border-slate-200 dark:border-slate-800">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-600 to-teal-500 text-white font-bold text-xs flex items-center justify-center font-mono shadow-xs">
+              US
+            </div>
+            <div className="hidden lg:flex flex-col text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-bold text-slate-900 dark:text-slate-100 leading-none">
+                  Uzair Salman
+                </span>
+                <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 uppercase">
+                  PRO
+                </span>
+              </div>
+              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                Sargodha Board • 4 Day Streak <Flame className="w-2.5 h-2.5 fill-amber-500 text-amber-500" />
+              </span>
+            </div>
           </div>
 
           {/* Admin Studio Settings Link */}
