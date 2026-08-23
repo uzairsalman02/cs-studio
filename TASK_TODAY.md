@@ -18,10 +18,13 @@
 - [x] Implement Module 04 Global Theme & Branding Context Provider ([src/context/BrandContext.tsx](file:///Users/uzair/Dev/cs-studio/src/context/BrandContext.tsx))
 - [x] Implement Super Admin Management Portal ([src/app/admin/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/admin/page.tsx))
 - [x] Implement Brand & Appearance Settings ([src/app/admin/settings/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/admin/settings/page.tsx))
-- [x] Enforce Locked Rules: 100% Pure Clean Light Mode ONLY (`bg-slate-100` page, `bg-white` cards), zero duplicate headers, 2-column Topic Studio layout, and SVG rendering integrity (`w-full h-48`)
+- [x] Strictly align `TopicStudio.tsx` and dynamic learn routes under `.antigravityrules`:
+  1. No duplicate TopBars exist.
+  2. Dual-lane SVGs render cleanly with `w-full h-48` container dimensions.
+  3. 5-layer stepper navigation functions smoothly without layout breaking.
 - [x] Verify build (`npm run build`) with 0 compile/lint errors
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Locked Rules (.antigravityrules) strictly enforced across the workspace, verified via `npm run build`, and pushed to GitHub (`origin/main`).
+- **Current Step**: Workspace re-aligned strictly under `.antigravityrules`, verified via `npm run build` (0 compile errors), and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
