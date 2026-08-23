@@ -13,16 +13,20 @@
 - [x] Build Pinned Left Sidebar (`FixedSidebar.tsx`) with Unit 1 exam pairing banner and topic scrolling list
 - [x] Build Branded Bottom Footer (`Footer.tsx`) with PCTB attribution
 - [x] Wire persistent Learning Layout (`src/app/learn/[curriculum]/[unit]/[topic]/layout.tsx`)
-- [x] Scaffold Topic Page (`src/app/learn/[curriculum]/[unit]/[topic]/page.tsx`) with SDLC hero and Urdu hook
-- [x] Setup Prisma ORM schema ([prisma/schema.prisma](file:///Users/uzair/Dev/cs-studio/prisma/schema.prisma)) database-agnostic models
+- [x] Setup Prisma ORM schema ([prisma/schema.prisma](file:///Users/uzair/Dev/cs-studio/prisma/schema.prisma))
 - [x] Create Prisma Client utility singleton ([src/lib/prisma.ts](file:///Users/uzair/Dev/cs-studio/src/lib/prisma.ts))
-- [x] Build complete dataset for Unit 1 Topic 1.2 ([src/data/punjab-11/unit-01.json](file:///Users/uzair/Dev/cs-studio/src/data/punjab-11/unit-01.json)) with all 6 SDLC phases, Urdu hooks, technical deliverables, and Board Checkpoint MCQs
-- [x] Configure Supabase PostgreSQL connection in `.env` (Ignored in `.gitignore`)
-- [x] Push Prisma schema to live Supabase database (`npx prisma db push`)
-- [x] Create and execute seed script ([prisma/seed.ts](file:///Users/uzair/Dev/cs-studio/prisma/seed.ts)) to populate Supabase database with Curriculum, Unit 1, Topic 1.2, 6 Concept Stages, and 2 Board Checkpoints
-- [x] Validate build (`npm run build`) with 0 compile/lint errors
+- [x] Build complete dataset for Unit 1 Topic 1.2 ([src/data/punjab-11/unit-01.json](file:///Users/uzair/Dev/cs-studio/src/data/punjab-11/unit-01.json))
+- [x] Configure Supabase PostgreSQL connection & push tables (`npx prisma db push`)
+- [x] Execute seed script ([prisma/seed.ts](file:///Users/uzair/Dev/cs-studio/prisma/seed.ts)) to populate Supabase DB
+- [x] Implement `SvgRenderer` component ([src/components/pedagogy/SvgRenderer.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/SvgRenderer.tsx))
+- [x] Implement `DualLaneVisual` component ([src/components/pedagogy/DualLaneVisual.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/DualLaneVisual.tsx))
+- [x] Implement `OfficialTheoryTab` component ([src/components/pedagogy/OfficialTheoryTab.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/OfficialTheoryTab.tsx))
+- [x] Implement `TopperPaperSheet` component ([src/components/pedagogy/TopperPaperSheet.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/TopperPaperSheet.tsx))
+- [x] Implement `CheckpointMCQ` component ([src/components/pedagogy/CheckpointMCQ.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/CheckpointMCQ.tsx))
+- [x] Wire dynamic SDLC Topic 1.2 interactive stepper page ([src/app/learn/[curriculum]/[unit]/[topic]/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/learn/%5Bcurriculum%5D/%5Bunit%5D/%5Btopic%5D/page.tsx))
+- [x] Verify build (`npm run build`) with 0 compile/lint errors
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Supabase PostgreSQL database tables created, seeded with Unit 1 SDLC data, verified via build, and pushed to GitHub (`origin/main`).
+- **Current Step**: Core interactive pedagogical components, 6-stage SDLC stepper, and checkpoint MCQs fully implemented, verified, and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
