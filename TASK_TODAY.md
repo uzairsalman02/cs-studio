@@ -23,11 +23,14 @@
 - [x] Implement `OfficialTheoryTab` component ([src/components/pedagogy/OfficialTheoryTab.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/OfficialTheoryTab.tsx))
 - [x] Implement `TopperPaperSheet` component ([src/components/pedagogy/TopperPaperSheet.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/TopperPaperSheet.tsx))
 - [x] Implement `CheckpointMCQ` component ([src/components/pedagogy/CheckpointMCQ.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/CheckpointMCQ.tsx))
-- [x] Wire dynamic SDLC Topic 1.2 interactive stepper page ([src/app/learn/[curriculum]/[unit]/[topic]/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/learn/%5Bcurriculum%5D/%5Bunit%5D/%5Btopic%5D/page.tsx))
-- [x] Configure root route redirect ([src/app/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/page.tsx)) to automatically load `/learn/punjab-11/unit-01/topic-1-2`
+- [x] Implement `TeacherCueBar` component ([src/components/presenter/TeacherCueBar.tsx](file:///Users/uzair/Dev/cs-studio/src/components/presenter/TeacherCueBar.tsx))
+- [x] Implement `ClassroomPollModal` component ([src/components/presenter/ClassroomPollModal.tsx](file:///Users/uzair/Dev/cs-studio/src/components/presenter/ClassroomPollModal.tsx))
+- [x] Implement lazy-loaded `PythonPlayground` Pyodide WASM runner ([src/components/pedagogy/PythonPlayground.tsx](file:///Users/uzair/Dev/cs-studio/src/components/pedagogy/PythonPlayground.tsx))
+- [x] Connect Projector Stage mode toggle in Header & Page layout
+- [x] Configure root route redirect ([src/app/page.tsx](file:///Users/uzair/Dev/cs-studio/src/app/page.tsx))
 - [x] Verify build (`npm run build`) with 0 compile/lint errors
 - [x] Commit and push changes to GitHub (`main`)
 
 ## Status Summary
-- **Current Step**: Root URL redirection configured to load primary CS Studio workspace `/learn/punjab-11/unit-01/topic-1-2`, verified via build, and pushed to GitHub (`origin/main`).
+- **Current Step**: Classroom presentation layer (TeacherCueBar, ClassroomPollModal, Pyodide WASM execution engine, and Projector Stage mode) fully implemented, verified, and pushed to GitHub (`origin/main`).
 - **Blockers**: None.
