@@ -12,10 +12,7 @@ import {
   Flame,
   ChevronLeft,
   ChevronRight,
-  Award,
   CheckCircle2,
-  Home,
-  Code,
   AlertTriangle,
   RefreshCw,
   PlayCircle,
@@ -35,8 +32,12 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
 
   // Active Topic Data (match by ID or Slug)
   const activeTopic: Topic =
-    UNIT_01_DATA.topics.find((t) => t.id === selectedTopicId || t.slug === selectedTopicId) ||
-    UNIT_01_DATA.topics[1];
+    UNIT_01_DATA.topics.find(
+      (t) =>
+        t.id === selectedTopicId ||
+        t.slug === selectedTopicId ||
+        t.topicCode.toLowerCase().replace(" ", "-") === selectedTopicId.toLowerCase()
+    ) || UNIT_01_DATA.topics[1];
 
   // Active SDLC Stage Data (default to Stage 1 if undefined)
   const currentPhaseData: SDLCStage =
@@ -53,7 +54,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
 
   return (
     <div className="h-screen w-screen overflow-hidden flex flex-col justify-between bg-slate-100 text-slate-800 font-sans">
-      {/* 1. Single Clean TopBar Header (No Duplicate Headers) */}
+      {/* 1. Single TopBar Header (No Duplicate Headers) */}
       <header className="h-16 w-full bg-white border-b border-slate-200 px-4 md:px-6 flex items-center justify-between z-40 shrink-0 shadow-xs">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-3">
@@ -192,7 +193,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
 
         {/* Column 2: Right Learning Stage */}
         <main className="flex-1 h-full overflow-y-auto p-6 md:p-8 space-y-6 bg-slate-100">
-          {/* Top: Fixed 5-Step Stepper Header */}
+          {/* Fixed 5-Step Stepper Header */}
           <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
               <div className="flex flex-wrap items-center gap-2">
@@ -237,9 +238,9 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
             </div>
           </div>
 
-          {/* Dynamic Step Views */}
+          {/* Dynamic Step View Container */}
           <div>
-            {/* Step 1: Definition (Textbook Definition Box + Rubric Chips) */}
+            {/* Step 1: Definition */}
             {currentStep === 1 && (
               <div className="space-y-6 animate-in fade-in">
                 <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-4">
@@ -252,12 +253,10 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                     </span>
                   </div>
 
-                  {/* Textbook Definition Box */}
                   <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 font-medium leading-relaxed">
                     &ldquo;{activeTopic.verbatimDefinition}&rdquo;
                   </div>
 
-                  {/* Marking Rubric Chips */}
                   <div className="space-y-2 pt-2">
                     <h4 className="text-xs font-mono text-slate-400 uppercase font-bold tracking-wider">
                       Board Marking Rubric Keywords Checklist
@@ -279,7 +278,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
               </div>
             )}
 
-            {/* Step 2: Concept & Map (Core Concept + Flowchart Vector SVG) */}
+            {/* Step 2: Concept & Map */}
             {currentStep === 2 && (
               <div className="space-y-6 animate-in fade-in">
                 <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-4">
@@ -296,10 +295,9 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                     </p>
                   </div>
 
-                  {/* SVG Rendering Integrity: Visible SVG Container with w-full h-48 */}
                   <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center">
                     <div
-                      className="w-full h-48 flex items-center justify-center"
+                      className="w-full h-48 flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-44"
                       dangerouslySetInnerHTML={{ __html: currentPhaseData.rwSvgLight }}
                     />
                   </div>
@@ -311,7 +309,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
               </div>
             )}
 
-            {/* Step 3: Phase Explorer (Symmetrical Dual-Lane Cards with Visible SVGs) */}
+            {/* Step 3: Phase Explorer (Dual-Lane Cards with SVG Integrity) */}
             {currentStep === 3 && (
               <div className="space-y-6 animate-in fade-in">
                 {/* Stage Stepper Buttons */}
@@ -334,7 +332,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
 
                 {/* Symmetrical Dual-Lane Cards */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {/* Left Lane: Amber Real-World Urdu Analogy with Visible SVG */}
+                  {/* Lane 1: Amber Real-World Urdu Analogy */}
                   <div className="p-6 rounded-2xl bg-white border-2 border-amber-400 space-y-4 shadow-xs flex flex-col justify-between">
                     <div className="space-y-3">
                       <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-mono font-bold border border-amber-200 inline-block">
@@ -351,19 +349,18 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                       <p className="text-xs text-slate-600 leading-relaxed">{currentPhaseData.rwEn}</p>
                     </div>
 
-                    {/* SVG Container: w-full h-48 with proper rendering */}
                     <div className="pt-3 border-t border-slate-100">
                       <span className="text-[10px] font-mono text-slate-400 uppercase font-bold block mb-1">
                         {currentPhaseData.rwVisLabel}
                       </span>
                       <div
-                        className="w-full h-48 rounded-xl bg-slate-50 border border-slate-200 p-4 flex items-center justify-center overflow-hidden"
+                        className="w-full h-48 rounded-xl bg-slate-50 border border-slate-200 p-3 flex items-center justify-center overflow-hidden [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-44"
                         dangerouslySetInnerHTML={{ __html: currentPhaseData.rwSvgLight }}
                       />
                     </div>
                   </div>
 
-                  {/* Right Lane: Teal Software Equivalent with Visible SVG */}
+                  {/* Lane 2: Teal Software Equivalent */}
                   <div className="p-6 rounded-2xl bg-white border-2 border-teal-400 space-y-4 shadow-xs flex flex-col justify-between">
                     <div className="space-y-3">
                       <span className="px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-mono font-bold border border-teal-200 inline-block">
@@ -377,20 +374,19 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                       </div>
                     </div>
 
-                    {/* SVG Container: w-full h-48 with proper rendering */}
                     <div className="pt-3 border-t border-slate-100">
                       <span className="text-[10px] font-mono text-slate-400 uppercase font-bold block mb-1">
                         {currentPhaseData.swVisLabel}
                       </span>
                       <div
-                        className="w-full h-48 rounded-xl bg-slate-50 border border-slate-200 p-4 flex items-center justify-center overflow-hidden"
+                        className="w-full h-48 rounded-xl bg-slate-50 border border-slate-200 p-3 flex items-center justify-center overflow-hidden [&>svg]:w-full [&>svg]:h-full [&>svg]:max-h-44"
                         dangerouslySetInnerHTML={{ __html: currentPhaseData.swSvgLight }}
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Fatal Consequence Alert Box */}
+                {/* Fatal Warning Alert Box */}
                 <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3 text-xs text-rose-900">
                   <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                   <div>
@@ -405,7 +401,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
               </div>
             )}
 
-            {/* Step 4: Topper Sheet (Master 605 Blue Cut-Marker Board Attempt Presentation) */}
+            {/* Step 4: Topper Sheet */}
             {currentStep === 4 && activeTopic.topperSheet && (
               <div className="space-y-6 animate-in fade-in">
                 <div className="p-6 rounded-2xl bg-slate-900 text-white shadow-xl space-y-4 font-sans border-t-4 border-indigo-500">
@@ -435,7 +431,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
               </div>
             )}
 
-            {/* Step 5: Practice Test (Interactive Past Paper MCQs with 1-Click Option Feedback) */}
+            {/* Step 5: Practice Test */}
             {currentStep === 5 && (
               <div className="space-y-6 animate-in fade-in">
                 {activeTopic.assessmentQuestions.map((q) => (
