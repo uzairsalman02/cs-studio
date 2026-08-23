@@ -11,68 +11,12 @@ import {
   LayoutDashboard,
   ExternalLink,
   Edit,
-  CheckCircle2,
-  AlertCircle,
-  Sparkles,
-  Layers,
 } from "lucide-react";
 import { useBrand } from "@/context/BrandContext";
+import { UNIT_01_DATA } from "@/data/curriculum/unit-01";
 
 export default function AdminDashboardOverview() {
   const { settings } = useBrand();
-
-  const manifestTopics = [
-    {
-      code: "Topic 1.1",
-      title: "Software Basics & Classification",
-      unit: "Unit 1",
-      status: "Published",
-      svgCount: 2,
-      topperSheet: "Available ✓",
-      learnLink: "/learn/punjab-11/unit-01/topic-1-1",
-      teachLink: "/teach/software-basics-and-classification",
-    },
-    {
-      code: "Topic 1.2",
-      title: "Software Development Life Cycle (SDLC)",
-      unit: "Unit 1",
-      status: "Published",
-      svgCount: 12,
-      topperSheet: "Available ✓",
-      learnLink: "/learn/punjab-11/unit-01/topic-1-2",
-      teachLink: "/teach/sdlc-phases-and-workflow",
-    },
-    {
-      code: "Topic 1.3",
-      title: "Waterfall Model & V-Model",
-      unit: "Unit 1",
-      status: "Published",
-      svgCount: 4,
-      topperSheet: "Available ✓",
-      learnLink: "/learn/punjab-11/unit-01/topic-1-3",
-      teachLink: "/teach/sdlc-phases-and-workflow",
-    },
-    {
-      code: "Topic 1.4",
-      title: "Agile & Extreme Programming",
-      unit: "Unit 1",
-      status: "Draft",
-      svgCount: 2,
-      topperSheet: "Pending",
-      learnLink: "/learn/punjab-11/unit-01/topic-1-4",
-      teachLink: "/teach/sdlc-phases-and-workflow",
-    },
-    {
-      code: "Topic 1.5",
-      title: "System Design Tools & Diagrams",
-      unit: "Unit 1",
-      status: "Draft",
-      svgCount: 3,
-      topperSheet: "Pending",
-      learnLink: "/learn/punjab-11/unit-01/topic-1-5",
-      teachLink: "/teach/sdlc-phases-and-workflow",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col justify-between font-sans">
@@ -162,8 +106,8 @@ export default function AdminDashboardOverview() {
               </div>
             </div>
             <div className="space-y-1">
-              <h3 className="text-2xl font-black text-white font-mono">6 / 6 Units</h3>
-              <p className="text-[11px] text-slate-400 font-medium">Single National Curriculum</p>
+              <h3 className="text-2xl font-black text-white font-mono">7 / 7 Topics</h3>
+              <p className="text-[11px] text-slate-400 font-medium">Unit 1 Complete Catalog</p>
             </div>
           </div>
 
@@ -208,7 +152,7 @@ export default function AdminDashboardOverview() {
               </p>
             </div>
             <span className="text-xs font-mono text-indigo-400 font-bold">
-              {manifestTopics.length} Topics Cataloged
+              {UNIT_01_DATA.topics.length} Topics Cataloged
             </span>
           </div>
 
@@ -218,52 +162,42 @@ export default function AdminDashboardOverview() {
                 <tr className="border-b border-slate-800 text-[11px] font-mono text-slate-400 uppercase tracking-wider">
                   <th className="py-3 px-4">Topic Code</th>
                   <th className="py-3 px-4">Title</th>
-                  <th className="py-3 px-4">Unit</th>
-                  <th className="py-3 px-4">Status</th>
-                  <th className="py-3 px-4">SVG Vectors</th>
+                  <th className="py-3 px-4">Duration</th>
+                  <th className="py-3 px-4">Exam Badge</th>
                   <th className="py-3 px-4">Topper Guide</th>
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-xs">
-                {manifestTopics.map((topic, idx) => (
-                  <tr key={idx} className="hover:bg-slate-900/60 transition-colors">
+                {UNIT_01_DATA.topics.map((topic) => (
+                  <tr key={topic.id} className="hover:bg-slate-900/60 transition-colors">
                     <td className="py-3.5 px-4 font-mono font-bold text-indigo-400">
-                      {topic.code}
+                      {topic.topicCode}
                     </td>
                     <td className="py-3.5 px-4 font-semibold text-white">
                       {topic.title}
                     </td>
                     <td className="py-3.5 px-4 text-slate-400 font-mono">
-                      {topic.unit}
+                      {topic.duration}
                     </td>
                     <td className="py-3.5 px-4">
-                      <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                          topic.status === "Published"
-                            ? "bg-emerald-950 text-emerald-400 border border-emerald-800"
-                            : "bg-amber-950 text-amber-400 border border-amber-800"
-                        }`}
-                      >
-                        {topic.status}
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950 text-amber-400 border border-amber-800">
+                        {topic.examFrequencyBadge}
                       </span>
                     </td>
-                    <td className="py-3.5 px-4 font-mono text-slate-300">
-                      {topic.svgCount} Vectors
-                    </td>
                     <td className="py-3.5 px-4 font-mono text-emerald-400">
-                      {topic.topperSheet}
+                      {topic.topperSheet ? "Available ✓" : "Pending"}
                     </td>
                     <td className="py-3.5 px-4 text-right space-x-2">
                       <Link
-                        href={topic.learnLink}
+                        href={`/learn/${topic.slug}`}
                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-mono text-[11px] transition-colors"
                       >
                         <span>Student View</span>
                         <ExternalLink className="w-3 h-3" />
                       </Link>
                       <Link
-                        href={topic.teachLink}
+                        href={`/teach/${topic.slug}`}
                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-950 hover:bg-indigo-900 text-indigo-300 border border-indigo-800 font-mono text-[11px] transition-colors"
                       >
                         <span>Teacher Console</span>

@@ -40,9 +40,10 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4 | 5>(1);
   const [activePhaseNumber, setActivePhaseNumber] = useState(1);
 
-  // Active Topic Data
+  // Active Topic Data (match by ID or Slug)
   const activeTopic: Topic =
-    UNIT_01_DATA.topics.find((t) => t.id === selectedTopicId) || UNIT_01_DATA.topics[1];
+    UNIT_01_DATA.topics.find((t) => t.id === selectedTopicId || t.slug === selectedTopicId) ||
+    UNIT_01_DATA.topics[1];
 
   // Active SDLC Stage Data (default to Stage 1 if undefined)
   const currentPhaseData: SDLCStage =
@@ -157,7 +158,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                 <BookOpen className="w-3 h-3" /> Current Unit
               </span>
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40">
-                {UNIT_01_DATA.progressPercent}% Done
+                100% Cataloged
               </span>
             </div>
             <h2 className="text-xs font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-snug">
@@ -165,14 +166,14 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
             </h2>
           </div>
 
-          {/* Topics Scrollable List */}
+          {/* Topics Scrollable List (All 7 Topics 1.1 to 1.7) */}
           <div className="flex-1 overflow-y-auto p-3 space-y-1.5">
             <div className="px-2 py-1 text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider font-bold">
               Syllabus Topics (PECTAA 2023)
             </div>
 
             {UNIT_01_DATA.topics.map((t) => {
-              const isSelected = selectedTopicId === t.id;
+              const isSelected = activeTopic.id === t.id;
               return (
                 <button
                   key={t.id}
@@ -295,7 +296,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                       {[
                         "✓ Verbatim Definition (1 Mark)",
                         "✓ Key Deliverables & Artifacts (1.5 Marks)",
-                        "✓ Sequential Flowchart / Tree Diagram (1.5 Marks)",
+                        "✓ Visual Diagram / Flowchart (1.5 Marks)",
                         "✓ Correct Technical Terminology (1 Mark)",
                       ].map((item, idx) => (
                         <div key={idx} className="p-2.5 rounded-lg bg-slate-50 dark:bg-[#0f131a] border border-slate-200 dark:border-slate-800 text-xs font-mono text-emerald-600 dark:text-emerald-400">
@@ -313,7 +314,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
               <div className="space-y-6 animate-in fade-in">
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#161b26] border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
                   <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
-                    Real-World Analogy &amp; Visual Flowchart
+                    Real-World Analogy &amp; Visual Diagram
                   </h3>
 
                   <div className="p-4 rounded-xl bg-amber-50/40 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 space-y-1">
@@ -325,28 +326,9 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                     </p>
                   </div>
 
-                  {/* Cyclic Flowchart Vector SVG */}
+                  {/* Flowchart Vector SVG */}
                   <div className="p-4 bg-slate-50 dark:bg-[#0a0d13] rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center">
-                    <svg className="w-full h-full max-h-40" viewBox="0 0 500 140" fill="none">
-                      <rect x="10" y="50" width="70" height="40" rx="6" fill="#4f46e5" />
-                      <text x="22" y="74" fill="#fff" fontSize="10" fontWeight="bold">1. SRS</text>
-                      <path d="M85 70 L115 70" stroke="#6366f1" strokeWidth="2" />
-
-                      <rect x="120" y="50" width="70" height="40" rx="6" fill="#0d9488" />
-                      <text x="130" y="74" fill="#fff" fontSize="10" fontWeight="bold">2. Design</text>
-                      <path d="M195 70 L225 70" stroke="#0d9488" strokeWidth="2" />
-
-                      <rect x="230" y="50" width="70" height="40" rx="6" fill="#d97706" />
-                      <text x="240" y="74" fill="#fff" fontSize="10" fontWeight="bold">3. Code</text>
-                      <path d="M305 70 L335 70" stroke="#d97706" strokeWidth="2" />
-
-                      <rect x="340" y="50" width="70" height="40" rx="6" fill="#10b981" />
-                      <text x="352" y="74" fill="#fff" fontSize="10" fontWeight="bold">4. Test</text>
-                      <path d="M415 70 L445 70" stroke="#10b981" strokeWidth="2" />
-
-                      <rect x="445" y="50" width="50" height="40" rx="6" fill="#64748b" />
-                      <text x="450" y="74" fill="#fff" fontSize="9" fontWeight="bold">5. Deploy</text>
-                    </svg>
+                    <div dangerouslySetInnerHTML={{ __html: isDarkMode ? currentPhaseData.rwSvgDark : currentPhaseData.rwSvgLight }} />
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#0f131a] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
@@ -422,7 +404,7 @@ export function TopicStudio({ initialTopicId = "topic-1.2" }: TopicStudioProps) 
                   <AlertTriangle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-rose-700 dark:text-rose-300 font-mono uppercase text-[11px] block">
-                      Fatal Consequence of Skipping Stage 0{activePhaseNumber}
+                      Fatal Consequence Warning
                     </span>
                     <p className="text-rose-800/90 dark:text-rose-200/90 leading-relaxed">
                       {currentPhaseData.swWarn}
